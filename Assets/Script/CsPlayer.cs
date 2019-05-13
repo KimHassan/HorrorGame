@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CsPlayer : MonoBehaviour
 {
-
     public GameObject ui;
 
     public GameObject cam;
@@ -26,12 +25,17 @@ public class CsPlayer : MonoBehaviour
 
     Rigidbody rigidBody;
 
+    bool isRunning = false;
+
     // 숨기 관련====================
     bool isHide = false;
 
     Vector3 pastPosition;
 
     Quaternion pastRotation;
+
+    public Vector3 MoveMent { get => moveMent; set => moveMent = value; }
+    public bool Running { get => isRunning; set => isRunning = value; }
 
     //==============================
 
@@ -70,8 +74,9 @@ public class CsPlayer : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        transform.Translate(new Vector3(h, 0, v) * moveSpeed * Time.deltaTime);
-
+        moveMent = new Vector3(h, 0, v);
+        Running = moveMent.magnitude != 0;
+        transform.Translate(moveMent * moveSpeed * Time.deltaTime);
     }
 
 
