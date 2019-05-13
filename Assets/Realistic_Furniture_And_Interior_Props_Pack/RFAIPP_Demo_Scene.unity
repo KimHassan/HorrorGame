@@ -1419,15 +1419,15 @@ Light:
   m_GameObject: {fileID: 229616926}
   m_Enabled: 1
   serializedVersion: 9
-  m_Type: 2
+  m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 4
-  m_SpotAngle: 30
+  m_Intensity: 1.5
+  m_Range: 24.9158
+  m_SpotAngle: 40.79278
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1466,7 +1466,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 9e-44, z: 0, w: 2.3509887e-38}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1477,12 +1477,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229616926}
-  m_LocalRotation: {x: -0, y: 0.9982645, z: -0, w: -0.05888953}
-  m_LocalPosition: {x: 0.16, y: 0.63, z: 1.34}
-  m_LocalScale: {x: 1.6790475, y: 1.6790475, z: 1.6790475}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.16, y: 0.1936003, z: 0.011}
+  m_LocalScale: {x: 1.6790477, y: 2.5004928, z: 1.6790477}
   m_Children: []
-  m_Father: {fileID: 1373127453}
-  m_RootOrder: 1
+  m_Father: {fileID: 685088048}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &232313180
 GameObject:
@@ -3580,6 +3580,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4485020111080562, guid: 830cbf92a4739064d827c02442f2323e,
     type: 3}
   m_PrefabInstance: {fileID: 677805712}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &685088048 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5414178342079883033, guid: 40fbcd6b121d67f4491b1565e09c8d60,
+    type: 3}
+  m_PrefabInstance: {fileID: 2068252459}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &685889222
 PrefabInstance:
@@ -5967,12 +5973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a3ec6c22182de24fb5f86e8f7ed74c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &1373127453 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5414178341918649525, guid: 40fbcd6b121d67f4491b1565e09c8d60,
-    type: 3}
-  m_PrefabInstance: {fileID: 2068252459}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1406447660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8046,7 +8046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &2017328449
 Light:
   m_ObjectHideFlags: 0
@@ -8402,6 +8402,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5414178342079883032, guid: 40fbcd6b121d67f4491b1565e09c8d60,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5414178342079883032, guid: 40fbcd6b121d67f4491b1565e09c8d60,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5414178342079883032, guid: 40fbcd6b121d67f4491b1565e09c8d60,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513486334054563757, guid: 40fbcd6b121d67f4491b1565e09c8d60,
+        type: 3}
+      propertyPath: ui
+      value: 
+      objectReference: {fileID: 1421134068}
     - target: {fileID: 5414178341918649525, guid: 40fbcd6b121d67f4491b1565e09c8d60,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8472,26 +8492,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7570366
       objectReference: {fileID: 0}
-    - target: {fileID: 5414178342079883032, guid: 40fbcd6b121d67f4491b1565e09c8d60,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5414178342079883032, guid: 40fbcd6b121d67f4491b1565e09c8d60,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5414178342079883032, guid: 40fbcd6b121d67f4491b1565e09c8d60,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8513486334054563757, guid: 40fbcd6b121d67f4491b1565e09c8d60,
-        type: 3}
-      propertyPath: ui
-      value: 
-      objectReference: {fileID: 1421134068}
     - target: {fileID: 5414178341918649523, guid: 40fbcd6b121d67f4491b1565e09c8d60,
         type: 3}
       propertyPath: m_Enabled
