@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5414178341918649524}
   - component: {fileID: 5414178341918649523}
   - component: {fileID: 8513486334054563757}
+  - component: {fileID: 692481543089077360}
   - component: {fileID: 5414178341918649522}
   - component: {fileID: 5414178341918649520}
   m_Layer: 0
@@ -94,10 +95,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
-  darkSight: {fileID: 0}
-  xSensitivity: 1
-  ySensitivity: 1
   cam: {fileID: 5414178342079883014}
+--- !u!114 &692481543089077360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5414178341918649535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0583f33d355a4141a9ccc6e279fd88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: f8b5bdca47cd4af45885ae8b0e2fbb64, type: 2}
+  propertyName: Char pos
+  obj: {fileID: 5414178341918649525}
 --- !u!136 &5414178341918649522
 CapsuleCollider:
   m_ObjectHideFlags: 0
