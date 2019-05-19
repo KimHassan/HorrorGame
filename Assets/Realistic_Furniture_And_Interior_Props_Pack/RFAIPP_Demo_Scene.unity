@@ -1394,7 +1394,11 @@ Transform:
   m_PrefabInstance: {fileID: 217724021}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &229616926
+=======
+--- !u!1 &232313180
+>>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
 =======
 --- !u!1 &232313180
 >>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
@@ -1406,12 +1410,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 229616928}
   - component: {fileID: 229616927}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
 =======
+=======
+>>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
   - component: {fileID: 232313185}
   - component: {fileID: 232313184}
   - component: {fileID: 232313183}
@@ -1420,14 +1427,22 @@ GameObject:
   m_Layer: 0
   m_Name: ActiveItem
   m_TagString: ActiveObject
+<<<<<<< HEAD
+>>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
+=======
 >>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!108 &229616927
 Light:
+=======
+--- !u!114 &232313181
+MonoBehaviour:
+>>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
 =======
 --- !u!114 &232313181
 MonoBehaviour:
@@ -1436,6 +1451,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 229616926}
   m_Enabled: 1
@@ -1494,6 +1510,8 @@ MonoBehaviour:
 --- !u!4 &229616928
 Transform:
 =======
+=======
+>>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
   m_GameObject: {fileID: 232313180}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -8383,7 +8401,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
     - target: {fileID: 8513486334054563757, guid: 40fbcd6b121d67f4491b1565e09c8d60,
         type: 3}
       propertyPath: ui
@@ -8446,6 +8467,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     - target: {fileID: 5414178341918649525, guid: 40fbcd6b121d67f4491b1565e09c8d60,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -8501,6 +8523,8 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
 =======
 >>>>>>> 030c104303605dc05189e10ec0aa50ef560d9ad5
     m_RemovedComponents: []
