@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine;using UnityEngine.UI;
 
 public class CsGameManager : MonoBehaviour
 {
@@ -13,7 +12,7 @@ public class CsGameManager : MonoBehaviour
     public GameObject Lights;
 
     public CsUIControll UI;
-
+    
     int itemCount = 0;
 
     int maxItemCount = 3;

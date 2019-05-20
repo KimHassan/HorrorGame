@@ -77,6 +77,7 @@ public class CsPlayer : MonoBehaviour
         moveMent = new Vector3(h, 0, v);
         Running = moveMent.magnitude != 0;
         transform.Translate(moveMent * moveSpeed * Time.deltaTime);
+        
     }
 
 
