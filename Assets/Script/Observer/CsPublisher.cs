@@ -22,18 +22,7 @@ public class CsPublisher : MonoBehaviour
 
     protected virtual void OnRaiseCustomEvent(CustomEventArgs e)
     {
-        EventHandler<CustomEventArgs> handler = customEvent;
-
-        if(handler != null)
-        {
-            e.Message += "doing";
-            handler(this, e);
-        }
-    }
-
-    public void OnPlayerDead(object sender, EventArgs e)
-    {
-        
+        customEvent?.Invoke(this, e);
     }
 }
 
