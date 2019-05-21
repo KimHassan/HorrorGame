@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CsObjectDrawer : MonoBehaviour
+public class CsObjectKitchenDrawer : MonoBehaviour
 {
-    Vector3 originPos;
 
-    Vector3 destPos;
+    Quaternion LeftOriginRot;
 
+    Quaternion LeftDestRot;
 
     // Start is called before the first frame update
     void Start()
     {
-        originPos = transform.localPosition;
-
-        destPos = transform.localPosition;
+        LeftOriginRot = transform.rotation;
+        LeftDestRot = transform.rotation;
+        LeftDestRot.z += 90;
     }
 
     // Update is called once per frame

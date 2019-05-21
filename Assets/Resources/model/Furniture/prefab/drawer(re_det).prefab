@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 517448058244600424}
   - component: {fileID: 4806578869861162050}
   - component: {fileID: 8977745978632384857}
+  - component: {fileID: 292103902355537060}
   m_Layer: 0
-  m_Name: Box001
+  m_Name: case
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,6 +78,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &292103902355537060
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158547779807648024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 5060444177187149915, guid: cc3b5550bf75c6b44ade52725129ce35, type: 3}
 --- !u!1 &2346356646857780068
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,8 +103,9 @@ GameObject:
   - component: {fileID: 1521844705428829366}
   - component: {fileID: 5505810462976712020}
   - component: {fileID: 4989724851810849318}
+  - component: {fileID: 1904758979869601095}
   m_Layer: 0
-  m_Name: Object002
+  m_Name: UpFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +123,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5568780096207002873}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5505810462976712020
 MeshFilter:
@@ -154,6 +170,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1904758979869601095
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2346356646857780068}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -3996760141626369306, guid: cc3b5550bf75c6b44ade52725129ce35, type: 3}
 --- !u!1 &5551169354347426179
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,8 +195,9 @@ GameObject:
   - component: {fileID: 6384839172253000034}
   - component: {fileID: 4060550745616625562}
   - component: {fileID: 9171050456663988455}
+  - component: {fileID: 4528207536789024814}
   m_Layer: 0
-  m_Name: Object003
+  m_Name: MiddleFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +215,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5568780096207002873}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4060550745616625562
 MeshFilter:
@@ -231,6 +262,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4528207536789024814
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551169354347426179}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -3531946766418785785, guid: cc3b5550bf75c6b44ade52725129ce35, type: 3}
 --- !u!1 &6112096547125187655
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,8 +287,9 @@ GameObject:
   - component: {fileID: 2758020434286426496}
   - component: {fileID: 6057777159346556712}
   - component: {fileID: 3307025155562611123}
+  - component: {fileID: 2191290992821834779}
   m_Layer: 0
-  m_Name: Object001
+  m_Name: DownFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -261,7 +307,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5568780096207002873}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6057777159346556712
 MeshFilter:
@@ -308,6 +354,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2191290992821834779
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6112096547125187655}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -3292925553009838691, guid: cc3b5550bf75c6b44ade52725129ce35, type: 3}
 --- !u!1 &8868465243089137386
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5568780096207002873}
-  - component: {fileID: 3152485250160359740}
+  - component: {fileID: 5406412019810264055}
   m_Layer: 0
   m_Name: drawer(re_det)
   m_TagString: Untagged
@@ -337,23 +397,21 @@ Transform:
   m_LocalScale: {x: 1.309901, y: 1.3099, z: 1.309901}
   m_Children:
   - {fileID: 517448058244600424}
-  - {fileID: 2758020434286426496}
   - {fileID: 1521844705428829366}
   - {fileID: 6384839172253000034}
+  - {fileID: 2758020434286426496}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!64 &3152485250160359740
-MeshCollider:
+--- !u!114 &5406412019810264055
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8868465243089137386}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef01a74f846e3574794bdef7c29048cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
