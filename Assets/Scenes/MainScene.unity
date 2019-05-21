@@ -1908,6 +1908,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5414178342079883032, guid: 40fbcd6b121d67f4491b1565e09c8d60,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40fbcd6b121d67f4491b1565e09c8d60, type: 3}
 --- !u!4 &1249324272 stripped
@@ -2017,6 +2022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ActiveItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4529693029941902644, guid: ede2590558b980d458ccfeb5a9910902,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4529693029941902601, guid: ede2590558b980d458ccfeb5a9910902,
         type: 3}
@@ -2927,6 +2937,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1906089910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906089904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22cb77b2eaee234e9a0a16266548f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ecoTableEffect: {fileID: 0}
 --- !u!4 &1938323538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 877481708493510590, guid: 20734865b34a3304691cba9dc5240798,
