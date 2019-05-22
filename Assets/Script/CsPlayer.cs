@@ -27,13 +27,6 @@ public class CsPlayer : MonoBehaviour
 
     bool isRunning = false;
 
-    // 숨기 관련====================
-    bool isHide = false;
-
-    Vector3 pastPosition;
-
-    Quaternion pastRotation;
-
     public Vector3 MoveMent { get => moveMent; set => moveMent = value; }
     public bool Running { get => isRunning; set => isRunning = value; }
 
@@ -54,14 +47,13 @@ public class CsPlayer : MonoBehaviour
     }
     void Start()
     {
-        isHide = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         MoveUpdate();
-        HideUpdate();
         SightUpdate();
         RayCastUdpate();
         
@@ -69,15 +61,19 @@ public class CsPlayer : MonoBehaviour
 
     void MoveUpdate() // 캐릭터의 움직임
     {
-        if (isHide == true)
-            return;
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
         moveMent = new Vector3(h, 0, v);
+
+        //moveMent = moveMent.normalized * moveSpeed * Time.deltaTime;
+
         Running = moveMent.magnitude != 0;
+
         transform.Translate(moveMent * moveSpeed * Time.deltaTime);
-        
+
+        //rigidBody.MovePosition(transform.position + moveMent);
     }
 
 
@@ -87,15 +83,15 @@ public class CsPlayer : MonoBehaviour
         float xRot = Input.GetAxis("Mouse Y") * ySensitivity;
 
         this.transform.localRotation *= Quaternion.Euler(0, yRot, 0);
+
         cam.transform.localRotation *= Quaternion.Euler(-xRot, 0, 0);
-        
+
+        //rigidBody.MoveRotation(Quaternion.Euler(0, yRot, 0));
     }
 
     void RayCastUdpate() // 광선을 쏴서 물체를 감지
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
-        
 
         Debug.DrawRay(ray.origin, ray.direction * 2, Color.red);
 
@@ -106,61 +102,17 @@ public class CsPlayer : MonoBehaviour
 
     }
 
-    void HideUpdate() // 물체에 숨었을 때
-    {
-        if (isHide == false)
-            return;
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-
-            myCollider.enabled = true;
-
-            rigidBody.isKinematic = false;
-
-            isHide = false;
-
-            gameObject.transform.position = pastPosition;
-
-            gameObject.transform.rotation = pastRotation;
-        }
-    }
-
-    void Hide()
-    {
-        myCollider.enabled = false;
-
-        rigidBody.isKinematic = true;
-
-        isHide = true;
-
-        pastPosition = gameObject.transform.position;
-
-        pastRotation = gameObject.transform.rotation;
-
-
-    }
-
     void RayEvent()
     {
 
-        if(hit.transform.tag == "HideObject")
-        {
-            ui.GetComponent<CsUIControll>().TextUp(true, "숨으려면 E를 누르시오");
 
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Hide();
-
-                hit.transform.gameObject.GetComponent<CsObjectHide>().Active(this.gameObject);
-            }
-        }
-        else if (hit.transform.tag == "ActiveObject")
+        if (hit.transform.tag == "ActiveObject")
         {
             ui.GetComponent<CsUIControll>().TextUp(true, "활성화하려면 E를 누르시오");
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                hit.transform.gameObject.GetComponent<CsObjectActiveItem>().Active();
+                hit.transform.gameObject.GetComponent<CsObject>().Active();
 
                GetActiveItem();
             }
