@@ -15,7 +15,7 @@ public class CsObjectKitchenDrawer : CsObject
 
     public bool isLeft;
 
-    float moveSpeed = 50f;
+    float moveSpeed = 100f;
 
 
     // Start is called before the first frame update
