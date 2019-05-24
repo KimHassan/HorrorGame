@@ -33,8 +33,6 @@ public class CsUIControll : MonoBehaviour
     {
         playerText.SetActive(_isOver);
 
-        Debug.Log(_isOver);
-
         ActiveText.text = _string;
     }
 

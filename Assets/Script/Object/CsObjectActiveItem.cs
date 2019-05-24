@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CsObjectActiveItem : MonoBehaviour //
+public class CsObjectActiveItem : CsObject //
 {
     //오브젝트에 스크립트 추가
     // 태그를 activeItem으로 변경
@@ -20,9 +20,11 @@ public class CsObjectActiveItem : MonoBehaviour //
         
     }
 
-    public void Active()
+    public override void Active()
     {
-        CsGameManager.instance.GetItem();
+        Debug.Log("애미씨발");
+       // CsGameManager.instance.GetItem();
+
         Destroy(this.gameObject);
     }
 }

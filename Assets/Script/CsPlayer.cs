@@ -55,6 +55,7 @@ public class CsPlayer : MonoBehaviour
     void Start()
     {
         isHide = false;
+
     }
 
     // Update is called once per frame
@@ -71,13 +72,20 @@ public class CsPlayer : MonoBehaviour
     {
         if (isHide == true)
             return;
+
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
         moveMent = new Vector3(h, 0, v);
+
+        //moveMent = moveMent.normalized * moveSpeed * Time.deltaTime;
+
         Running = moveMent.magnitude != 0;
+
         transform.Translate(moveMent * moveSpeed * Time.deltaTime);
         
+
+        //rigidBody.MovePosition(transform.position + moveMent);
     }
 
 
@@ -88,9 +96,16 @@ public class CsPlayer : MonoBehaviour
 
 
         this.transform.localRotation *= Quaternion.Euler(0, yRot, 0);
+<<<<<<< HEAD
         Quaternion tempY = cam.transform.localRotation * Quaternion.Euler(-xRot, 0, 0);
         if (tempY.x * Mathf.Rad2Deg > -45)
             cam.transform.localRotation = tempY;
+=======
+
+        cam.transform.localRotation *= Quaternion.Euler(-xRot, 0, 0);
+
+        //rigidBody.MoveRotation(Quaternion.Euler(0, yRot, 0));
+>>>>>>> 55eaa92c4db1cbb5c2db892b20a998fad1f42749
     }
 
     void RayCastUdpate() // 광선을 쏴서 물체를 감지
@@ -157,12 +172,14 @@ public class CsPlayer : MonoBehaviour
             }
         }
         else if (hit.transform.tag == "ActiveObject")
+        if (hit.transform.tag == "ActiveObject")
         {
             ui.GetComponent<CsUIControll>().TextUp(true, "활성화하려면 E를 누르시오");
 
             if (Input.GetKeyDown(KeyCode.E))
             {
                 hit.transform.gameObject.GetComponent<CsObjectActiveItem>().Active();
+                hit.transform.gameObject.GetComponent<CsObject>().Active();
 
                GetActiveItem();
             }

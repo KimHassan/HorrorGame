@@ -2,31 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class DrawerFloor
+public class CsObjectDrawer : CsObject
 {
-
-  public GameObject Floor;
-
     Vector3 originPos;
+
     Vector3 destPos;
+
+    Vector3 destination;
+
+    float moveSpeed = 0.5f;
+
     bool isOpen;
-
-    public void Init(Vector3 _origin,Vector3 _dest)
-    {
-        originPos = _origin;
-        destPos = _dest;
-        isOpen = false;
-    }
-};
-
-public class CsObjectDrawer : MonoBehaviour
-{
-    DrawerFloor[] floor = new DrawerFloor[3];
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
+        originPos = gameObject.transform.localPosition;
 
+        destPos = originPos;
+
+        destPos.x += 0.2f;
+
+        isOpen = false;
+
+        destination = destPos;
+    }
+
+    private void Update()
+    {
+        
+
+    }
+
+    public override void Active()
+    {
+        StartCoroutine("OpenDrawer");
+    }
+
+    IEnumerator OpenDrawer()
+    {
+        if (isOpen)
+            destination = originPos;
+        else
+            destination = destPos;
+
+        isOpen = !isOpen;
+
+        while (transform.localPosition != destination)
+        {
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, destination, moveSpeed * Time.deltaTime);
+
+            yield return null;
+        }
+       
     }
 }
