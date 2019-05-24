@@ -22,9 +22,6 @@ public class CsObjectActiveItem : CsObject //
 
     public override void Active()
     {
-        Debug.Log("애미씨발");
-       // CsGameManager.instance.GetItem();
-
         Destroy(this.gameObject);
     }
 }
