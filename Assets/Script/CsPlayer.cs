@@ -86,9 +86,11 @@ public class CsPlayer : MonoBehaviour
         float yRot = Input.GetAxis("Mouse X") * xSensitivity;
         float xRot = Input.GetAxis("Mouse Y") * ySensitivity;
 
+
         this.transform.localRotation *= Quaternion.Euler(0, yRot, 0);
-        cam.transform.localRotation *= Quaternion.Euler(-xRot, 0, 0);
-        
+        Quaternion tempY = cam.transform.localRotation * Quaternion.Euler(-xRot, 0, 0);
+        if (tempY.x * Mathf.Rad2Deg > -45)
+            cam.transform.localRotation = tempY;
     }
 
     void RayCastUdpate() // 광선을 쏴서 물체를 감지
