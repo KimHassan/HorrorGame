@@ -110,6 +110,8 @@ public class CsPlayer : MonoBehaviour
         {
             ui.GetComponent<CsUIControll>().TextUp(true, "활성화하려면 E를 누르시오");
 
+            hit.transform.gameObject.GetComponent<CsObject>().RayCast();
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 hit.transform.gameObject.GetComponent<CsObject>().Active();
