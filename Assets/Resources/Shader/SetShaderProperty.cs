@@ -11,9 +11,9 @@ public class SetShaderProperty : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (obj != null)
-            mat.SetVector(propertyName, obj.position);
-        else
-            Debug.Log("Assign the obj property");
+        //if (obj != null)
+        //    mat.SetVector(propertyName, obj.position);
+        //else
+        //    Debug.Log("Assign the obj property");
     }
 }

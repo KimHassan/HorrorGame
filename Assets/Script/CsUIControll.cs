@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CsUIControll : MonoBehaviour
 {
+
     public GameObject playerText;
 
     Text ActiveText;
@@ -12,6 +13,10 @@ public class CsUIControll : MonoBehaviour
     [HideInInspector]public Text ItemText;
 
     public CsGameManager GM;
+
+    public GameObject mainCursor;
+
+    public GameObject handCursor;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +29,8 @@ public class CsUIControll : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        mainCursor.SetActive(true);
+        handCursor.SetActive(false);
 
         playerText.SetActive(false);
 
@@ -36,5 +43,10 @@ public class CsUIControll : MonoBehaviour
         ActiveText.text = _string;
     }
 
-    
+    public void RayCast()
+    {
+        mainCursor.SetActive(false);
+
+        handCursor.SetActive(true);
+    }
 }

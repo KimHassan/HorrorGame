@@ -15,6 +15,10 @@ public class CsObjectActiveItem : CsObject //
     }
 
     // Update is called once per frame
+    private void FixedUpdate()
+    {
+        gameObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.0f);
+    }
     void Update()
     {
         
@@ -23,5 +27,10 @@ public class CsObjectActiveItem : CsObject //
     public override void Active()
     {
         Destroy(this.gameObject);
+    }
+
+    public override void RayCast()
+    {
+        gameObject.GetComponent<Renderer>().material.SetFloat("_Outline", 0.001f);
     }
 }

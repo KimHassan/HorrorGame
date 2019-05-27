@@ -90,10 +90,10 @@ public class CsPlayer : MonoBehaviour
 
         Quaternion tempY = cam.transform.localRotation * Quaternion.Euler(-xRot, 0, 0);
 
-        if (tempY.x * Mathf.Rad2Deg > -45)
+        if (tempY.x * Mathf.Rad2Deg > -45 && tempY.x * Mathf.Rad2Deg < 45)  
             cam.transform.localRotation = tempY;
 
-        cam.transform.localRotation *= Quaternion.Euler(-xRot, 0, 0);
+        //cam.transform.localRotation *= Quaternion.Euler(-xRot, 0, 0);
 
     }
 
@@ -116,6 +116,8 @@ public class CsPlayer : MonoBehaviour
         if (hit.transform.tag == "ActiveObject")
         {
             ui.GetComponent<CsUIControll>().TextUp(true, "활성화하려면 E를 누르시오");
+
+            ui.GetComponent<CsUIControll>().RayCast();
 
             hit.transform.gameObject.GetComponent<CsObject>().RayCast();
 
