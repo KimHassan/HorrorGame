@@ -12,7 +12,7 @@ public class CsGameManager : MonoBehaviour
     public GameObject Lights;
 
     public CsUIControll UI;
-    
+
     int itemCount = 0;
 
     int maxItemCount = 3;
@@ -33,6 +33,8 @@ public class CsGameManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+
+        DontDestroyOnLoad(this);
     }
 
     // Start is called before the first frame update

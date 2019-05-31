@@ -61,9 +61,25 @@ public class CsPlayer : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        float h = Input.GetAxisRaw("Horizontal");
+        float v = Input.GetAxisRaw("Vertical");
+
+        //Vector3 moveMent = new Vector3(v * transform.forward.x, 0, v * transform.forward.z);
+        //rigidBody.MovePosition(transform.position + moveMent * Time.deltaTime);
+
+        Vector3 forward = v * (transform.forward * moveSpeed) * Time.deltaTime;
+        Vector3 right = h * (transform.right * moveSpeed) * Time.deltaTime;
+        
+        rigidBody.MovePosition(transform.position + (forward + right));
+  
+
+
+
+    }
     void MoveUpdate() // 캐릭터의 움직임
     {
-
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
@@ -71,9 +87,9 @@ public class CsPlayer : MonoBehaviour
 
         //moveMent = moveMent.normalized * moveSpeed * Time.deltaTime;
 
-        Running = moveMent.magnitude != 0;
+        Running = (moveMent.magnitude != 0);
 
-        transform.Translate(moveMent * moveSpeed * Time.deltaTime);
+        //transform.Translate(moveMent * moveSpeed * Time.deltaTime);
         
 
         //rigidBody.MovePosition(transform.position + moveMent);

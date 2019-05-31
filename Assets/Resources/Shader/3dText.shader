@@ -3,6 +3,8 @@
 	Properties{
 		_MainTex("Font Texture", 2D) = "white" {}
 		_Color("Text Color", Color) = (1,1,1,1)
+		_EmissionMap("Emission map", 2D) = "black" {}
+		_EmissionColor("Emission Color", Color) = (0,0,0)
 	}
 
 	SubShader{
@@ -16,4 +18,5 @@
 			}
 		}
 	}
+	FallBack "Diffuse"
 }
