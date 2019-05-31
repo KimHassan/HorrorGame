@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 5505810462976712020}
   - component: {fileID: 4989724851810849318}
   - component: {fileID: 1904758979869601095}
-  - component: {fileID: 7385759060675806713}
+  - component: {fileID: 58474859372277902}
   m_Layer: 0
   m_Name: UpFloor
   m_TagString: ActiveObject
@@ -186,7 +186,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3996760141626369306, guid: cc3b5550bf75c6b44ade52725129ce35, type: 3}
---- !u!114 &7385759060675806713
+--- !u!114 &58474859372277902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,9 +195,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2346356646857780068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef01a74f846e3574794bdef7c29048cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d12e1fa45d4d574e86b87546c08ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plusDestPos: {x: 0.2, y: 0, z: 0}
+  speed: 0.5
 --- !u!1 &5551169354347426179
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ GameObject:
   - component: {fileID: 4060550745616625562}
   - component: {fileID: 9171050456663988455}
   - component: {fileID: 4528207536789024814}
-  - component: {fileID: 7065940854558408909}
+  - component: {fileID: 2853877354121833488}
   m_Layer: 0
   m_Name: MiddleFloor
   m_TagString: ActiveObject
@@ -291,7 +293,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3531946766418785785, guid: cc3b5550bf75c6b44ade52725129ce35, type: 3}
---- !u!114 &7065940854558408909
+--- !u!114 &2853877354121833488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,9 +302,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5551169354347426179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef01a74f846e3574794bdef7c29048cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d12e1fa45d4d574e86b87546c08ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plusDestPos: {x: 0.2, y: 0, z: 0}
+  speed: 0.5
 --- !u!1 &6112096547125187655
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +319,7 @@ GameObject:
   - component: {fileID: 6057777159346556712}
   - component: {fileID: 3307025155562611123}
   - component: {fileID: 2191290992821834779}
-  - component: {fileID: 3663954454280502022}
+  - component: {fileID: 4157026121186711043}
   m_Layer: 0
   m_Name: DownFloor
   m_TagString: ActiveObject
@@ -396,7 +400,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3292925553009838691, guid: cc3b5550bf75c6b44ade52725129ce35, type: 3}
---- !u!114 &3663954454280502022
+--- !u!114 &4157026121186711043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -405,9 +409,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6112096547125187655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef01a74f846e3574794bdef7c29048cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d12e1fa45d4d574e86b87546c08ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plusDestPos: {x: 0.2, y: 0, z: 0}
+  speed: 0.5
 --- !u!1 &8868465243089137386
 GameObject:
   m_ObjectHideFlags: 0

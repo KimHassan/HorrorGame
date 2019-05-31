@@ -77,98 +77,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &2957800076670858808
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 930189976514479734}
-  - component: {fileID: 4267478125179250391}
-  - component: {fileID: 7185545082811719897}
-  - component: {fileID: 5819452150923158967}
-  m_Layer: 0
-  m_Name: Plane
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &930189976514479734
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2957800076670858808}
-  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0.004166238, y: 0.0964989, z: -0.10748813}
-  m_LocalScale: {x: 0.039839644, y: 0.026237631, z: 0.016943183}
-  m_Children: []
-  m_Father: {fileID: 3576933310484123826}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!33 &4267478125179250391
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2957800076670858808}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &7185545082811719897
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2957800076670858808}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
---- !u!64 &5819452150923158967
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2957800076670858808}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4843377793860107637
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +89,7 @@ GameObject:
   - component: {fileID: 4896583942591850010}
   - component: {fileID: 4179706349389940865}
   - component: {fileID: 299029562142464853}
-  - component: {fileID: 4532733444080426967}
+  - component: {fileID: 9108735585027288965}
   m_Layer: 0
   m_Name: Object001
   m_TagString: ActiveObject
@@ -199,8 +107,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.08016617, y: 0, z: -0.14432372}
   m_LocalScale: {x: 1, y: 1.04329, z: 0.7442682}
-  m_Children:
-  - {fileID: 930189976514479734}
+  m_Children: []
   m_Father: {fileID: 6534128095663568331}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -263,7 +170,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3292925553009838691, guid: 51a4c91fccc25a943ba46b9d17ad9854, type: 3}
---- !u!114 &4532733444080426967
+--- !u!114 &9108735585027288965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,9 +179,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4843377793860107637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517dab0d23eb9e24cbe181dcd1f770f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d12e1fa45d4d574e86b87546c08ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plusDestPos: {x: 0, y: 0, z: 0.16}
+  speed: 0.5
 --- !u!1 &7851668861731194840
 GameObject:
   m_ObjectHideFlags: 0
