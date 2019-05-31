@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CsObjectKitchenDrawer : CsObject
+public class CsObjectRotateObject : CsObject
 {
+    public Vector3 destVec;
 
     Quaternion originRot;
 
@@ -12,8 +13,6 @@ public class CsObjectKitchenDrawer : CsObject
     Quaternion destination;
 
     bool isOpen;
-
-    public bool isLeft;
 
     float moveSpeed = 100f;
 
@@ -25,10 +24,7 @@ public class CsObjectKitchenDrawer : CsObject
 
         destRot = transform.localRotation;
 
-        if(isLeft)
-            destRot = Quaternion.Euler(new Vector3(0, 0, 90));
-       else
-            destRot = Quaternion.Euler(new Vector3(0, 0, -90));
+        destRot = Quaternion.Euler(destVec);
 
         destination = destRot;
 
@@ -42,12 +38,12 @@ public class CsObjectKitchenDrawer : CsObject
     {
        //transform.localRotation = destination;
 
-         StartCoroutine("OpenKitchenDrawer");
+         StartCoroutine("RotateObject");
        // Debug.Log(transform.localRotation);
        // Debug.Log(destination);
     }
 
-    IEnumerator OpenKitchenDrawer()
+    IEnumerator RotateObject()
     {
         if (isOpen)
             destination = originRot;
@@ -56,17 +52,13 @@ public class CsObjectKitchenDrawer : CsObject
 
         isOpen = !isOpen;
 
-        var i = 0;
-        
         while (transform.localRotation != destination)
         {
             transform.localRotation = Quaternion.RotateTowards(transform.localRotation, destination, moveSpeed * Time.deltaTime);
-            i++;
+
             yield return null;
         }
-        Debug.Log(transform.rotation);
-        Debug.Log(destination);
-        Debug.Log(i);
+
     }
 
 }

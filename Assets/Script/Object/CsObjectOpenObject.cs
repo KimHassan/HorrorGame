@@ -2,25 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CsObjectMiniDrawer : CsObject
+public class CsObjectOpenObject : CsObject
 {
-    Vector3 originPos;
-
+    public Vector3 plusDestPos;
     Vector3 destPos;
-
+    Vector3 originPos;
     Vector3 destination;
+
+    public float speed;
 
     bool isOpen;
 
-    float moveSpeed = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
         originPos = transform.localPosition;
 
-        destPos = originPos;
-
-        destPos.z = 0.1f;
+        destPos = originPos + plusDestPos;
 
         destination = destPos;
 
@@ -35,9 +33,11 @@ public class CsObjectMiniDrawer : CsObject
 
     public override void Active()
     {
-        StartCoroutine("OpenMiniDrawer");
+        Debug.Log(destination);
+        StartCoroutine("OpenObject");
     }
-    IEnumerator OpenMiniDrawer()
+
+    IEnumerator OpenObject()
     {
         if (isOpen)
             destination = originPos;
@@ -46,9 +46,9 @@ public class CsObjectMiniDrawer : CsObject
 
         isOpen = !isOpen;
 
-        while(destination != transform.localPosition)
+        while (destination != transform.localPosition)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, destination, moveSpeed * Time.deltaTime);
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, destination, speed * Time.deltaTime);
 
             yield return null;
         }
