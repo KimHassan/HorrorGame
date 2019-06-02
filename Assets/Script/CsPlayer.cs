@@ -70,7 +70,7 @@ public class CsPlayer : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        moveMent = new Vector3(h, 0, v);
+        moveMent = new Vector3(h, 0, v) * moveSpeed;
         Running = (moveMent.magnitude != 0);
 
         Vector3 forward = moveMent.z * transform.forward * moveSpeed * Time.deltaTime;

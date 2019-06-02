@@ -1,12 +1,6 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Resources/PostProcessing.meta
-guid: 3245b471be4795e49b49266ac617c7d7
-folderAsset: yes
-DefaultImporter:
-=======
-guid: acb210a3bfc1b4846a64c0682ba962e4
+guid: a582b53e60d4a5f498f39948b0dc73ac
 PrefabImporter:
->>>>>>> b791f2e96760fae21d4d5c12a97b212cc19964a5:Assets/Resources/model/Furniture/prefab/closet_vol2.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
