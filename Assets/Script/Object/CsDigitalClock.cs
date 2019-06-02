@@ -7,9 +7,11 @@ public class CsDigitalClock : MonoBehaviour
     [SerializeField]
     private GameObject clock;
     private TextMesh textMeshClock = null;
+    private AudioSource audio = null;
 
     [SerializeField]
     private float clockTime = 0;
+
     
     public CsDigitalClock(int _second)
     {
@@ -20,6 +22,7 @@ public class CsDigitalClock : MonoBehaviour
     void Start()
     {
         textMeshClock = clock.GetComponent<TextMesh>();
+        audio = GetComponent<AudioSource>();
         
         StartTimeCounting();
     }
@@ -45,6 +48,7 @@ public class CsDigitalClock : MonoBehaviour
             clockTime -= 1.0f;
             yield return new WaitForSeconds(1.0f);
         }
+        audio.mute = false;
         yield break;
     }
 
