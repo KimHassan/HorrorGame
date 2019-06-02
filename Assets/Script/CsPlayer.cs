@@ -9,6 +9,7 @@ public class CsPlayer : MonoBehaviour
     public GameObject cam;
 
     //움직임 관련=================
+    [SerializeField]
     float moveSpeed = 3f;
 
     Vector3 moveMent;
@@ -55,7 +56,6 @@ public class CsPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveUpdate();
         SightUpdate();
         RayCastUdpate();
         
@@ -63,36 +63,20 @@ public class CsPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float h = Input.GetAxisRaw("Horizontal");
-        float v = Input.GetAxisRaw("Vertical");
-
-        //Vector3 moveMent = new Vector3(v * transform.forward.x, 0, v * transform.forward.z);
-        //rigidBody.MovePosition(transform.position + moveMent * Time.deltaTime);
-
-        Vector3 forward = v * (transform.forward * moveSpeed) * Time.deltaTime;
-        Vector3 right = h * (transform.right * moveSpeed) * Time.deltaTime;
-        
-        rigidBody.MovePosition(transform.position + (forward + right));
-  
-
-
-
+        MoveUpdate();
     }
     void MoveUpdate() // 캐릭터의 움직임
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        moveMent = new Vector3(h, 0, v);
-
-        //moveMent = moveMent.normalized * moveSpeed * Time.deltaTime;
-
+        moveMent = new Vector3(h, 0, v) * moveSpeed;
         Running = (moveMent.magnitude != 0);
 
-        //transform.Translate(moveMent * moveSpeed * Time.deltaTime);
-        
+        Vector3 forward = moveMent.z * transform.forward * moveSpeed * Time.deltaTime;
+        Vector3 right = moveMent.x * transform.right * moveSpeed * Time.deltaTime;
 
-        //rigidBody.MovePosition(transform.position + moveMent);
+        rigidBody.MovePosition(transform.position + (forward + right));
     }
 
 
