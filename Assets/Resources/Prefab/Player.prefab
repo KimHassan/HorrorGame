@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
   cam: {fileID: 5414178342079883014}
+  moveSpeed: 1.5
 --- !u!136 &5414178341918649522
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -196,10 +197,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.45
+  m_Radius: 0.29195768
   m_Height: 1.4365741
   m_Direction: 1
-  m_Center: {x: 0.11202926, y: -0.048628815, z: 1.2372224e-15}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5414178341918649520
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -227,11 +228,9 @@ GameObject:
   - component: {fileID: 5414178342079883033}
   - component: {fileID: 5414178342079883032}
   - component: {fileID: 5414178342079883015}
-  - component: {fileID: 1906089908}
   - component: {fileID: 1906089909}
   - component: {fileID: 1906089905}
   - component: {fileID: 1906089906}
-  - component: {fileID: 1906089910}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -247,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5414178342079883014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 2.2382882, z: 1}
   m_Children:
   - {fileID: 229616928}
@@ -305,25 +304,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5414178342079883014}
   m_Enabled: 1
---- !u!320 &1906089908
-PlayableDirector:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5414178342079883014}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 4ca911fb9ddb0f8458902b127d1f542b, type: 2}
-  m_InitialState: 1
-  m_WrapMode: 2
-  m_DirectorUpdateMode: 1
-  m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 7108791593434883552, guid: 4ca911fb9ddb0f8458902b127d1f542b, type: 2}
-    value: {fileID: 1906089909}
-  m_ExposedReferences:
-    m_References: []
 --- !u!95 &1906089909
 Animator:
   serializedVersion: 3
@@ -332,9 +312,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5414178342079883014}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5ad3223b2471df14eb8d1c1f3f18fce1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -420,19 +400,6 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &1906089910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5414178342079883014}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22cb77b2eaee234e9a0a16266548f4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ecoTableEffect: {fileID: 0}
 --- !u!1 &5414178342250459186
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +412,7 @@ GameObject:
   - component: {fileID: 5414178342250459190}
   - component: {fileID: 5414178342250459189}
   - component: {fileID: 1126965756}
+  - component: {fileID: 1001307653}
   m_Layer: 0
   m_Name: eye
   m_TagString: Untagged
@@ -460,7 +428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5414178342250459186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.339, z: 0}
+  m_LocalPosition: {x: 0, y: 0.339, z: -0.195}
   m_LocalScale: {x: 1, y: 0.3, z: 1}
   m_Children:
   - {fileID: 5414178342079883033}
@@ -582,4 +550,17 @@ MonoBehaviour:
     VerticaltoHorizontalRatio: 2
   fpsPlayer: {fileID: 8513486334054563757}
   StrideInterval: 4
-  RunningStrideLengthen: 9.3
+  RunningStrideLengthen: 5
+--- !u!65 &1001307653
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5414178342250459186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6887537, y: 0.9999999, z: 0.7649764}
+  m_Center: {x: 0.007544977, y: -0.0000004920885, z: 0.17502828}

@@ -6,12 +6,17 @@ public class CsObjectActiveItem : CsObject //
 {
     //오브젝트에 스크립트 추가
     // 태그를 activeItem으로 변경
+    public delegate void ItemActive();
+    public ItemActive itemActive = null;
 
-
+    private void Awake()
+    {
+        itemActive = DestroyItem;
+    }
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -24,9 +29,14 @@ public class CsObjectActiveItem : CsObject //
         
     }
 
-    public override void Active()
+    void DestroyItem()
     {
         Destroy(this.gameObject);
+    }
+
+    public override void Active()
+    {
+        itemActive();
     }
 
     public override void RayCast()
