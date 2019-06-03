@@ -6,7 +6,6 @@ public class CsPlayer : MonoBehaviour
 {
     public GameObject ui;
 
-    public GameObject cam;
 
     //움직임 관련=================
     [SerializeField]
@@ -33,7 +32,9 @@ public class CsPlayer : MonoBehaviour
     public Vector3 MoveMent { get => moveMent; set => moveMent = value; }
     public bool Running { get => isRunning; set => isRunning = value; }
 
-    //==============================
+    // 카메라 관련==============================
+    public GameObject cam;
+    private CsCamera csCamera;
 
     // Start is called before the first frame update
     private void Awake()
@@ -45,8 +46,8 @@ public class CsPlayer : MonoBehaviour
         myCollider = GetComponent<CapsuleCollider>();
 
         rigidBody = GetComponent<Rigidbody>();
-       
 
+        csCamera = cam.GetComponent<CsCamera>();
     }
     void Start()
     {
@@ -56,6 +57,7 @@ public class CsPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (csCamera.CameraState != CsCamera.CAMERA_STATE.CAMERA_IDLE) return;
         SightUpdate();
         RayCastUdpate();
         
@@ -63,14 +65,16 @@ public class CsPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (csCamera.CameraState != CsCamera.CAMERA_STATE.CAMERA_IDLE) return;
         MoveUpdate();
+
     }
     void MoveUpdate() // 캐릭터의 움직임
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         
-        Vector3 forward = v * transform.forward;
+        Vector3 forward = v * Vector3.Normalize(transform.forward);
         Vector3 right = h * transform.right;
 
         moveMent = Vector3.Normalize(forward + right);
