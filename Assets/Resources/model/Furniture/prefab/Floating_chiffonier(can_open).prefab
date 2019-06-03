@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 8262159901296423308}
   - component: {fileID: 8934745315810688766}
   - component: {fileID: 4153644237254129696}
-  - component: {fileID: 1666857980689250529}
   m_Layer: 0
   m_Name: LeftDoor
   m_TagString: ActiveObject
@@ -124,19 +123,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3996760141626369306, guid: c6784aa9d600adb4c8063fa956668ba7, type: 3}
---- !u!114 &1666857980689250529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2183798483133220796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b1e3bd3d0f34e74bacc12e3ad4e3fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destVec: {x: 0, y: 0, z: 90}
 --- !u!1 &3641813068547830941
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +305,6 @@ GameObject:
   - component: {fileID: 7915329849846513093}
   - component: {fileID: 4037580036083045344}
   - component: {fileID: 8771020448718746333}
-  - component: {fileID: 1826596691024922943}
   m_Layer: 0
   m_Name: RightDoor
   m_TagString: ActiveObject
@@ -400,19 +385,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 9186633843763367028, guid: c6784aa9d600adb4c8063fa956668ba7, type: 3}
---- !u!114 &1826596691024922943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7102716017015439839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b1e3bd3d0f34e74bacc12e3ad4e3fd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destVec: {x: 0, y: 0, z: -90}
 --- !u!1001 &8141439206792315916
 PrefabInstance:
   m_ObjectHideFlags: 0

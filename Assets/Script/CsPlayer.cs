@@ -69,14 +69,14 @@ public class CsPlayer : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+        
+        Vector3 forward = v * transform.forward;
+        Vector3 right = h * transform.right;
 
-        moveMent = new Vector3(h, 0, v);
+        moveMent = Vector3.Normalize(forward + right);
         Running = (moveMent.magnitude != 0);
 
-        Vector3 forward = moveMent.z * transform.forward * moveSpeed * Time.deltaTime;
-        Vector3 right = moveMent.x * transform.right * moveSpeed * Time.deltaTime;
-
-        rigidBody.MovePosition(transform.position + (forward + right));
+        rigidBody.MovePosition(transform.position + moveMent * moveSpeed * Time.deltaTime);
     }
 
 
