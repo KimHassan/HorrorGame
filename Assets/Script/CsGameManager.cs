@@ -56,7 +56,7 @@ public class CsGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(MonsterSpawnTime < 0 && isMonsterAwake == false)
+        if(MonsterSpawnTime < 0 && monster.activeSelf == false)
         {
             MonsterAwake();
         }
