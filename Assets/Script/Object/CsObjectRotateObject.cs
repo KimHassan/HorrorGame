@@ -36,12 +36,11 @@ public class CsObjectRotateObject : CsObject
 
     public override void Active()
     {
-       //transform.localRotation = destination;
 
          StartCoroutine("RotateObject");
-       // Debug.Log(transform.localRotation);
-       // Debug.Log(destination);
+
     }
+
 
     IEnumerator RotateObject()
     {
