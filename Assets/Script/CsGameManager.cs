@@ -4,7 +4,6 @@ using UnityEngine;using UnityEngine.UI;
 
 public class CsGameManager : MonoBehaviour
 {
-
     static public CsGameManager instance;
 
     public GameObject player;
@@ -12,22 +11,32 @@ public class CsGameManager : MonoBehaviour
     public GameObject Lights;
 
     public CsUIControll UI;
+    
+    [SerializeField]
+    private GameObject monster;
+    private CsMonster csMonster;
+
+    [SerializeField]
+    private List<GameObject> clockList = new List<GameObject>();
+
+    public GameObject ClockList{set => clockList.Add(value); }
+
+    [SerializeField]
+    private GameObject clockPrefab = null;
+
+    [SerializeField]
+    private float monsterSpawnTime = 0;
+    public float MonsterSpawnTime { get => monsterSpawnTime; set => monsterSpawnTime = value; }
 
     int itemCount = 0;
 
     int maxItemCount = 3;
-    enum EV_TIME
-    {
-        EV_NORMAL,
-        EV_READY,
-        EV_DARK
-    }
 
     float time = 0;
-
     float eventTime = 0;
 
-    EV_TIME stateEvent;
+    bool isMonsterAwake = false;
+
 
     private void Awake()
     {
@@ -35,84 +44,48 @@ public class CsGameManager : MonoBehaviour
             instance = this;
 
         DontDestroyOnLoad(this);
+        csMonster = monster.GetComponent<CsMonster>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
        
-
-        stateEvent = EV_TIME.EV_NORMAL;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
-        if(time > eventTime)
+        if(MonsterSpawnTime < 0 && isMonsterAwake == false)
         {
-            SetEvent();
+            MonsterAwake();
         }
-        
     }
 
-    void SetEvent()
+    public GameObject GetClock(int number)
     {
-        switch(stateEvent)
+        return clockList[number];
+    }
+
+    public GameObject AddDigitalClock(int time = 0)
+    {
+        GameObject clock = Instantiate(clockPrefab);
+        CsDigitalClock digitalClock = clock.GetComponent<CsDigitalClock>();
+        digitalClock.ClockTime = time;
+        return clock;
+    }
+
+    public void MonsterAwake()
+    {
+        monster.SetActive(true);
+        isMonsterAwake = true;
+        for(int i = 0; i < clockList.Count; i++)
         {
-            case EV_TIME.EV_NORMAL: // 평상시
-
-                setNormalEvent();
-
-                stateEvent = EV_TIME.EV_READY;
-
-                eventTime = Random.Range(10,20);
-
-                break;
-
-            case EV_TIME.EV_READY: // 잡소리 많이 들림
-
-                setReadyEvent();
-
-                stateEvent = EV_TIME.EV_DARK ;
-
-                eventTime = Random.Range(10, 20);
-
-                break;
-
-            case EV_TIME.EV_DARK: // 어두워지고 귀신 등장
-
-                setDarkEvent();
-
-                stateEvent = EV_TIME.EV_NORMAL;
-
-                eventTime = Random.Range(10, 20);
-
-                break;
+            GameObject clock = clockList[i];
+            monster.transform.position = clock.transform.position;
+            clock.GetComponent<CsDigitalClock>().Mute = true;
         }
-
-        time = 0;
-    }
-
-    void setNormalEvent()
-    {
-        Lights.SetActive(true);
-    }
-
-    void setReadyEvent()
-    {
-
-    }
-    void setDarkEvent()
-    {
-        Lights.SetActive(false);
-    }
-
-    public void GetItem()
-    {
-        itemCount++;
-        UI.ItemText.text = "얻은 아이템 : " + itemCount + "/" + maxItemCount;
+        monster.transform.LookAt(player.transform);
     }
 
 }
