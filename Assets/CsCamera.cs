@@ -11,6 +11,7 @@ public class CsCamera : MonoBehaviour
         CAMERA_DEATH
     }
 
+    [SerializeField]
     private CAMERA_STATE cameraState = CAMERA_STATE.CAMERA_AWAKE;
 
     private Animator animator;
@@ -24,7 +25,10 @@ public class CsCamera : MonoBehaviour
         set
         {
             animator.SetInteger("PlayerCinemaScene", (int)value);
-            animator.enabled = true;
+            if(CameraState == CAMERA_STATE.CAMERA_IDLE)
+                animator.enabled = false;
+            else
+                animator.enabled = true;   
         }
     }
 
@@ -32,6 +36,7 @@ public class CsCamera : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        CameraState = cameraState;
     }
 
     // Update is called once per frame
@@ -41,7 +46,6 @@ public class CsCamera : MonoBehaviour
         if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
         {
             CameraState = CAMERA_STATE.CAMERA_IDLE;
-            animator.enabled = false;
         }
     }
 }

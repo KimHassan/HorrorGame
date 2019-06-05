@@ -43,7 +43,6 @@ public class CsMonster : MonoBehaviour
 
     void OnEnable()
     {
-        MoveState = MONSTER_STATE.MONSTER_PATROL;
     }
 
     // Update is called once per frame
