@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - ActiveObject
-  - HideObject
+  - ClosetObject
+  - BigDrawerObject
+  - MiniDrawerObject
+  - DesktopObject
+  - ItemPosition
   layers:
   - Default
   - TransparentFX
