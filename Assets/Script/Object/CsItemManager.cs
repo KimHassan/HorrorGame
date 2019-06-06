@@ -2,37 +2,95 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class CsItemManager : MonoBehaviour
+class ItemObject : MonoBehaviour
 {
-    GameObject[] itemPosition;
+    GameObject[] allPosition;
 
-    public GameObject drugItem;
+    GameObject obj;
 
-    
+    int allPosMax;
 
-    //public GameObject[] keyItem;
+    int[] tempPos;
+
+    List<int> arrPos = new List<int>();
 
     int max;
 
-    int[] arrRandPosition; // 아이템을 배치할 랜덤의 수
+    public void Init(string _tagName, GameObject _obj, int _max)
+    {
+        Debug.Log(_tagName);
 
-    List<int> arrRand = new List<int>();
+        allPosition = GameObject.FindGameObjectsWithTag(_tagName);
+
+        allPosMax = allPosition.Length;
+
+        max = _max;
+
+        obj = _obj;
+
+        for (int i=0;i<max;i++)
+        {
+            SetList();
+        }
+
+        arrPos.Sort();
+
+        SetItem();
+
+    }
+
+    void SetList()
+    {
+        int temp = Random.Range(0, allPosMax);
+
+        //while(arrPos.Contains(temp) == false)
+        //{
+        //    temp = Random.Range(0, allPosMax);
+        //}
+
+        arrPos.Add(temp);
+    }
+
+   public void SetItem()
+    {
+        
+        foreach(int pos in arrPos)
+        {
+            GameObject temp = Instantiate(obj, allPosition[pos].transform.position, Quaternion.identity);
+
+            temp.transform.parent = allPosition[pos].transform.parent;
+
+            temp.transform.rotation = obj.transform.rotation;
+
+        }
+    }
 
 
-    int itemMax = 5;
+}
+
+public class CsItemManager : MonoBehaviour
+{
+
+    public GameObject drugItem; // drug의 프리펩
+
+    public GameObject keyItem;
+
+    ItemObject DrugItems = new ItemObject();
+
+    ItemObject KeyItems = new ItemObject();
+
 
     // Start is called before the first frame update
     void Start()
     {
-       itemPosition = GameObject.FindGameObjectsWithTag("ItemPosition");
-
-        max = itemPosition.Length;
-
         
-        arrRandPosition = new int[itemMax];
+       KeyItems.Init("ItemPosition", keyItem, 5);
 
-        setItems();
+       DrugItems.Init("DrugPosition", drugItem, 5);
+
+     
+
+
     }
 
     // Update is called once per frame
@@ -41,47 +99,4 @@ public class CsItemManager : MonoBehaviour
         
     }
 
-    void setItems()
-    {
-        for (int i = 0; i < itemMax; i++)
-        {
-            arrRandPosition[i] = Random.Range(0, max);
-        }
-        for (int i = 0; i < itemMax; i++)
-        {
-            arrRand.Add(Random.Range(0, max));
-        }
-     
-
-        arrRand.Sort();
-
-
-        Debug.Log(arrRand.Count);
-
-
-        for (int i = 0; i < itemPosition.Length; i++)
-        {
-            if(arrRand.Count != 0)
-            {
-                if (i == arrRand[0])
-                {
-
-                    GameObject drug = Instantiate(drugItem, itemPosition[i].transform.position, Quaternion.identity);
-
-                    drug.transform.localRotation = drugItem.transform.localRotation;
-
-                    drug.transform.parent = itemPosition[i].transform.parent;
-
-                    arrRand.RemoveAt(0);
-
-                }
-            }
-            
-
-            Destroy(itemPosition[i]);
-            
-        }
-
-
-    }
 }
