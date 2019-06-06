@@ -18,7 +18,8 @@ public class CsMonster : MonoBehaviour
     public enum MONSTER_STATE
     {
         MONSTER_TRAKING,
-        MONSTER_PATROL
+        MONSTER_PATROL,
+        MONSTER_IDLE
     }
     private MONSTER_STATE moveState = MONSTER_STATE.MONSTER_TRAKING;
 
@@ -56,6 +57,8 @@ public class CsMonster : MonoBehaviour
             case MONSTER_STATE.MONSTER_PATROL:
                 MonsterPatrolMove();
                 break;
+            default:
+                break;
         }
     }
 
@@ -76,5 +79,16 @@ public class CsMonster : MonoBehaviour
         targetPoint += 1;
         if (destinationList.Count <= targetPoint)
             targetPoint = 0;
+    }
+
+    public void AttackPlayer(Vector3 playerPos, Vector3 playerFrontVec)
+    {
+        nav.enabled = false;
+
+        transform.position = playerPos + playerFrontVec * 0.5f;
+
+        transform.LookAt(playerPos);
+
+        MoveState = MONSTER_STATE.MONSTER_IDLE;
     }
 }

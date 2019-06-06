@@ -13,7 +13,7 @@ public class CsGameManager : MonoBehaviour
     public CsUIControll UI;
     
     [SerializeField]
-    private GameObject monster;
+    private GameObject monster = null;
     private CsMonster csMonster;
 
     [SerializeField]

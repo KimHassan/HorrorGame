@@ -27,14 +27,15 @@ public class CsPlayer : MonoBehaviour
 
     bool isRunning = false;
 
-    // 숨기 관련====================
-
     public Vector3 MoveMent { get => moveMent; set => moveMent = value; }
     public bool Running { get => isRunning; set => isRunning = value; }
 
     // 카메라 관련==============================
     public GameObject cam;
     private CsCamera csCamera;
+
+    // 상태 관련==============================
+    bool isDead = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -51,16 +52,27 @@ public class CsPlayer : MonoBehaviour
     }
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
         if (csCamera.CameraState != CsCamera.CAMERA_STATE.CAMERA_IDLE) return;
+        PlayerStateMachine();
         SightUpdate();
         RayCastUdpate();
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Monster")
+        {
+            CsMonster csMonster = other.gameObject.GetComponent<CsMonster>();
+            csMonster.AttackPlayer(transform.position, transform.forward);
+            csCamera.CameraState = CsCamera.CAMERA_STATE.CAMERA_DEATH;
+            isDead = true;
+        }
     }
 
     private void FixedUpdate()
@@ -134,4 +146,11 @@ public class CsPlayer : MonoBehaviour
 
     }
 
+    void PlayerStateMachine()
+    {
+        if(isDead == true)
+        {
+            myCollider.enabled = false;
+        }
+    }
 }
