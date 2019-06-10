@@ -15,6 +15,7 @@ public class CsCamera : MonoBehaviour
     private CAMERA_STATE cameraState = CAMERA_STATE.CAMERA_AWAKE;
 
     private Animator animator;
+    private Camera camComponent;
 
     public CAMERA_STATE CameraState
     {
@@ -37,15 +38,30 @@ public class CsCamera : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         CameraState = cameraState;
+        camComponent = GetComponent<Camera>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (CameraState == CAMERA_STATE.CAMERA_IDLE) return;
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+        switch (CameraState)
         {
-            CameraState = CAMERA_STATE.CAMERA_IDLE;
+            case CAMERA_STATE.CAMERA_AWAKE:
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+                {
+                    CameraState = CAMERA_STATE.CAMERA_IDLE;
+                }
+                break;
+            case CAMERA_STATE.CAMERA_IDLE:
+
+                break;
+            case CAMERA_STATE.CAMERA_DEATH:
+                camComponent.fieldOfView = 35;
+                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+                {
+                    CameraState = CAMERA_STATE.CAMERA_IDLE;
+                }
+                break;
         }
     }
 }

@@ -86,6 +86,7 @@ public class CsMonster : MonoBehaviour
         nav.enabled = false;
 
         transform.position = playerPos + playerFrontVec * 0.5f;
+        transform.Translate(new Vector3(0, -0.1f));
 
         transform.LookAt(playerPos);
 

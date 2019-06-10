@@ -49,6 +49,7 @@ public class CsPlayer : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
 
         csCamera = cam.GetComponent<CsCamera>();
+
     }
     void Start()
     {
