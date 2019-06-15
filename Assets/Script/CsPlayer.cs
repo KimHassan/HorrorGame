@@ -49,6 +49,7 @@ public class CsPlayer : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
 
         csCamera = cam.GetComponent<CsCamera>();
+
     }
     void Start()
     {
@@ -70,7 +71,7 @@ public class CsPlayer : MonoBehaviour
         {
             CsMonster csMonster = other.gameObject.GetComponent<CsMonster>();
             csMonster.AttackPlayer(transform.position, transform.forward);
-            csCamera.CameraState = CsCamera.CAMERA_STATE.CAMERA_DEATH;
+            csCamera.ChangeCameraState(CsCamera.CAMERA_STATE.CAMERA_DEATH);
             isDead = true;
         }
     }

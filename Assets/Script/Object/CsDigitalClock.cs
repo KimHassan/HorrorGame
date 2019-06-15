@@ -6,7 +6,11 @@ public class CsDigitalClock : MonoBehaviour
 {
     [SerializeField]
     private GameObject clock;
+    [SerializeField]
+    private GameObject text;
+
     private TextMesh textMeshClock = null;
+
     private AudioSource audio;
     private CsObjectActiveItem activeItem = null;
 
@@ -35,14 +39,12 @@ public class CsDigitalClock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        textMeshClock = clock.GetComponent<TextMesh>();
-        audio = GetComponent<AudioSource>();
+        textMeshClock = text.GetComponent<TextMesh>();
+        audio = clock.GetComponent<AudioSource>();
         Mute = true;
 
-        activeItem = GetComponent<CsObjectActiveItem>();
+        activeItem = clock.GetComponent<CsObjectActiveItem>();
         activeItem.itemActive = ActiveClock;
-
-        CsGameManager.instance.ClockList = this.gameObject;
 
         StartTimeCounting();
     }
