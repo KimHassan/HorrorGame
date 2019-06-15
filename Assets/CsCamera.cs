@@ -16,6 +16,7 @@ public class CsCamera : MonoBehaviour
 
     private Animator animator;
     private Camera camComponent;
+    private Vector3 originPos = new Vector3(0, 0, 0);
 
     public CAMERA_STATE CameraState
     {
@@ -23,21 +24,13 @@ public class CsCamera : MonoBehaviour
         {
             return (CAMERA_STATE)animator.GetInteger("PlayerCinemaScene");
         }
-        set
-        {
-            animator.SetInteger("PlayerCinemaScene", (int)value);
-            if(CameraState == CAMERA_STATE.CAMERA_IDLE)
-                animator.enabled = false;
-            else
-                animator.enabled = true;   
-        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        CameraState = cameraState;
+        ChangeCameraState(cameraState);
         camComponent = GetComponent<Camera>();
     }
 
@@ -49,7 +42,7 @@ public class CsCamera : MonoBehaviour
             case CAMERA_STATE.CAMERA_AWAKE:
                 if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
                 {
-                    CameraState = CAMERA_STATE.CAMERA_IDLE;
+                    ChangeCameraState(CAMERA_STATE.CAMERA_IDLE);
                 }
                 break;
             case CAMERA_STATE.CAMERA_IDLE:
@@ -57,11 +50,40 @@ public class CsCamera : MonoBehaviour
                 break;
             case CAMERA_STATE.CAMERA_DEATH:
                 camComponent.fieldOfView = 35;
-                if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-                {
-                    CameraState = CAMERA_STATE.CAMERA_IDLE;
-                }
+                
                 break;
         }
+    }
+
+    public void ChangeCameraState(CAMERA_STATE state)
+    {
+        animator.SetInteger("PlayerCinemaScene", (int)state);
+        switch (state)
+        {
+            case CAMERA_STATE.CAMERA_AWAKE:
+                animator.enabled = true;
+                break;
+            case CAMERA_STATE.CAMERA_IDLE:
+                animator.enabled = false;
+                break;
+            case CAMERA_STATE.CAMERA_DEATH:
+                originPos = transform.localPosition;
+                StartCoroutine(Shake(0.02f, 3));
+                animator.enabled = false;
+                break;
+        }
+    }
+
+    public IEnumerator Shake(float _amount, float _duration)
+    {
+        float timer = 0;
+        while (timer <= _duration)
+        {
+            transform.localPosition = (Vector3)Random.insideUnitCircle * _amount + originPos;
+
+            timer += 0.03f;
+            yield return new WaitForSeconds(0.03f);
+        }
+        transform.localPosition = originPos;
     }
 }

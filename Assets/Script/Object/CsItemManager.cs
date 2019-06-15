@@ -70,7 +70,7 @@ class ItemObject : MonoBehaviour
 
 public class CsItemManager : MonoBehaviour
 {
-
+    
     public GameObject drugItem; // drug의 프리펩
 
     public GameObject keyItem;

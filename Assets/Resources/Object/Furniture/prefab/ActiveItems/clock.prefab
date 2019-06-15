@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2232553331720683037}
   - component: {fileID: 9165648752698629482}
   - component: {fileID: 3737584247095358355}
-  - component: {fileID: 1636522927347224824}
   - component: {fileID: 4619569199815447702}
   m_Layer: 0
   m_Name: Localclock
@@ -30,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488439767747349185}
   m_LocalRotation: {x: -0.75830406, y: -0, z: -0, w: -0.65190107}
-  m_LocalPosition: {x: 0.7403927, y: 2.559014, z: -0.012010336}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4153591, y: 0.41535917, z: 0.41535917}
   m_Children:
   - {fileID: 4619569199108059079}
@@ -108,20 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4debe05cbe4bad47be6d0a0e88ec132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1636522927347224824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488439767747349185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04abf67c40441d46bb2df623877acaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clock: {fileID: 4619569199108059074}
-  clockTime: 5
 --- !u!82 &4619569199815447702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -227,9 +212,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2531033580872256144}
+  - component: {fileID: 6233863020709648106}
   m_Layer: 0
   m_Name: Clock
-  m_TagString: Untagged
+  m_TagString: Clock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,13 +228,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3753814062548983072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2986073, y: -1.8440142, z: 3.2320104}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3502692998776862930}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6233863020709648106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3753814062548983072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04abf67c40441d46bb2df623877acaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clock: {fileID: 488439767747349185}
+  text: {fileID: 4619569199108059074}
+  clockTime: 5
 --- !u!1 &4619569199108059074
 GameObject:
   m_ObjectHideFlags: 0

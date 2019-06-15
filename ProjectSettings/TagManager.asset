@@ -12,6 +12,7 @@ TagManager:
   - ItemPosition
   - DrugPosition
   - Monster
+  - Clock
   layers:
   - Default
   - TransparentFX
