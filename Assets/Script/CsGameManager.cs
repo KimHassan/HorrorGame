@@ -63,7 +63,8 @@ public class CsGameManager : MonoBehaviour
         CsDigitalClock digitalClock = clock.GetComponent<CsDigitalClock>();
         digitalClock.ClockTime = time;
 
-        clockDisposition.Init("ItemPosition", clockPrefab, 1);
+        clockDisposition.Init("ClockPosition", clockPrefab, 1);
+
         return clock;
     }
 

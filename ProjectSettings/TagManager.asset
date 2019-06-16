@@ -5,14 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - ActiveObject
-  - ClosetObject
-  - BigDrawerObject
-  - MiniDrawerObject
-  - DesktopObject
   - ItemPosition
   - DrugPosition
   - Monster
   - Clock
+  - ClockPosition
   layers:
   - Default
   - TransparentFX
