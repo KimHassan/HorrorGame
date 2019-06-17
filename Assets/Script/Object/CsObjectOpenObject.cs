@@ -31,6 +31,15 @@ public class CsObjectOpenObject : CsObject
         
     }
 
+    void InitPosition()
+    {
+        transform.localPosition = originPos;
+
+        destination = destPos;
+
+        isOpen = false;
+    }
+
     public override void Active()
     {
         Debug.Log(destination);
