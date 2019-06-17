@@ -72,6 +72,7 @@ public class CsPlayer : MonoBehaviour
             CsMonster csMonster = other.gameObject.GetComponent<CsMonster>();
             csMonster.AttackPlayer(transform.position, transform.forward);
             csCamera.ChangeCameraState(CsCamera.CAMERA_STATE.CAMERA_DEATH);
+            cam.transform.localRotation = Quaternion.Euler(0, 0, 0);
             isDead = true;
         }
     }
