@@ -177,11 +177,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 147938309}
     m_Modifications:
-    - target: {fileID: 2762485538704308775, guid: 453b6a6179577dc4299aa717ac9a9e70,
-        type: 3}
-      propertyPath: m_Name
-      value: clockPosition (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 3561892484973817239, guid: 453b6a6179577dc4299aa717ac9a9e70,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -236,6 +231,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762485538704308775, guid: 453b6a6179577dc4299aa717ac9a9e70,
+        type: 3}
+      propertyPath: m_Name
+      value: clockPosition (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 453b6a6179577dc4299aa717ac9a9e70, type: 3}
@@ -353,7 +353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &442579526
 Light:
   m_ObjectHideFlags: 0
@@ -1168,11 +1168,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 147938309}
     m_Modifications:
-    - target: {fileID: 2762485538704308775, guid: 453b6a6179577dc4299aa717ac9a9e70,
-        type: 3}
-      propertyPath: m_Name
-      value: clockPosition (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 3561892484973817239, guid: 453b6a6179577dc4299aa717ac9a9e70,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1227,6 +1222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762485538704308775, guid: 453b6a6179577dc4299aa717ac9a9e70,
+        type: 3}
+      propertyPath: m_Name
+      value: clockPosition (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 453b6a6179577dc4299aa717ac9a9e70, type: 3}
@@ -1336,11 +1336,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 147938309}
     m_Modifications:
-    - target: {fileID: 2762485538704308775, guid: 453b6a6179577dc4299aa717ac9a9e70,
-        type: 3}
-      propertyPath: m_Name
-      value: clockPosition
-      objectReference: {fileID: 0}
     - target: {fileID: 3561892484973817239, guid: 453b6a6179577dc4299aa717ac9a9e70,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1395,6 +1390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762485538704308775, guid: 453b6a6179577dc4299aa717ac9a9e70,
+        type: 3}
+      propertyPath: m_Name
+      value: clockPosition
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 453b6a6179577dc4299aa717ac9a9e70, type: 3}
