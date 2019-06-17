@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6294831702845100075}
   - component: {fileID: 1126376662842328186}
   m_Layer: 0
-  m_Name: drugPosition2
-  m_TagString: ActiveObject
+  m_Name: tempMesh
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7998793728898869660}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.12781024, y: 0.12781024, z: 0.12781024}
   m_Children: []
   m_Father: {fileID: 3598792689066178342}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6294831702845100075
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 72829360fbf314f4397b6f49221c01af, type: 2}
+  - {fileID: 2100000, guid: e3470d87f908c38499de2ef756affc93, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -4,65 +4,39 @@ using UnityEngine;
 
 class ItemObject : MonoBehaviour
 {
-    GameObject[] allPosition;
+    List<GameObject> allPosition = new List<GameObject>(); // 인게임에 위치한 모든 아이템의 포지션
 
-    GameObject obj;
+    GameObject obj; // 배치할 아이템
 
-    int allPosMax;
-
-    int[] tempPos;
-
-    List<int> arrPos = new List<int>();
-
-    int max;
-
-    public void Init(string _tagName, GameObject _obj, int _max)
+    public void Init(string _tagName, GameObject _obj, int _max) // 초반 배치
     {
-        Debug.Log(_tagName);
-
-        allPosition = GameObject.FindGameObjectsWithTag(_tagName);
-
-        allPosMax = allPosition.Length;
-
-        max = _max;
+        
+        allPosition.AddRange(GameObject.FindGameObjectsWithTag(_tagName));
 
         obj = _obj;
 
-        for (int i=0;i<max;i++)
+        for (int i = 0; i < _max; i++)
         {
-            SetList();
+            int temp = Random.Range(0, allPosition.Count);
+
+            SetItem(temp);
         }
 
-        arrPos.Sort();
-
-        SetItem();
-
     }
 
-    void SetList()
+   public void SetItem(int pos)
     {
-        int temp = Random.Range(0, allPosMax);
 
-        //while(arrPos.Contains(temp) == false)
-        //{
-        //    temp = Random.Range(0, allPosMax);
-        //}
-
-        arrPos.Add(temp);
-    }
-
-   public void SetItem()
-    {
-        
-        foreach(int pos in arrPos)
-        {
             GameObject temp = Instantiate(obj, allPosition[pos].transform.position, Quaternion.identity);
 
-            temp.transform.parent = allPosition[pos].transform.parent;
+        temp.transform.parent = allPosition[pos].transform.parent;
 
-            temp.transform.rotation = obj.transform.rotation;
 
-        }
+        temp.transform.rotation = allPosition[pos].transform.rotation;
+
+
+        allPosition.RemoveAt(pos);
+
     }
 
 
