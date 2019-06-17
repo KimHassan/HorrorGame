@@ -9,34 +9,47 @@ public class LampScript : MonoBehaviour
 
     public GameObject lampLight = null;
     public Texture2D texture = null;
-    public Rect rect;
-    private Color[] colors;
 
     // Start is called before the first frame update
     void Start()
     {
         renderer = GetComponent<MeshRenderer>();
         rampMat = renderer.materials[0];
+
+        //StartCoroutine(LampCoroutine());
     }
 
+    float time = 0;
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(LampCoroutine());
+        if (texture.GetPixel((int)(Time.time * 100), 10).r == 0)
+        {
+            lampLight.SetActive(false);
+        }
+        else
+            lampLight.SetActive(true);
     }
 
-    IEnumerator LampCoroutine()
+    private void FixedUpdate()
     {
-        float time = 0;
-        while (true)
-        {
-            time += Time.deltaTime;
-            if (texture.GetPixel((int)time, 10).r == 0)
-            {
-                lampLight.SetActive(false);
-            }
-            else
-                lampLight.SetActive(true);
-        }
     }
+
+    //IEnumerator LampCoroutine()
+    //{
+    //    float time = 0;
+
+    //    while (true)
+    //    {
+    //        time += 1;
+    //        if (texture.GetPixel((int)time, 10).r == 0)
+    //        {
+    //            lampLight.SetActive(false);
+    //        }
+    //        else
+    //            lampLight.SetActive(true);
+
+    //        yield return new WaitForSeconds(Time.deltaTime);
+    //    }
+    //}
 }
