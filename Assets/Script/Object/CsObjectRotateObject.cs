@@ -34,6 +34,18 @@ public class CsObjectRotateObject : CsObject
 
     // Update is called once per frame
 
+    public override void InitObject()
+    {
+
+        transform.localRotation = originRot;
+
+        destination = destRot;
+
+        isOpen = false;
+
+        Debug.Log(name);
+    }
+
     public override void Active()
     {
 

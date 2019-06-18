@@ -25,24 +25,27 @@ public class CsObjectOpenObject : CsObject
         isOpen = false;
     }
 
+
     // Update is called once per frame
     void Update()
     {
         
     }
 
-    void InitPosition()
+    public override void InitObject()
     {
         transform.localPosition = originPos;
 
         destination = destPos;
 
         isOpen = false;
+
+        Debug.Log(name);
+
     }
 
     public override void Active()
     {
-        Debug.Log(destination);
         StartCoroutine("OpenObject");
     }
 

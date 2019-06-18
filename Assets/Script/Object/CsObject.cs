@@ -16,4 +16,9 @@ public class CsObject : MonoBehaviour
 
     }
 
+    public virtual void InitObject()
+    {
+        Debug.Log(tag);
+    }
+
 }

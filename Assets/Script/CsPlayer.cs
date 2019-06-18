@@ -35,8 +35,12 @@ public class CsPlayer : MonoBehaviour
     private CsCamera csCamera;
 
     // 상태 관련==============================
+
     bool isDead = false;
 
+    public bool isBatteryHaving;
+
+    public bool isAbleEscape;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -49,6 +53,10 @@ public class CsPlayer : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
 
         csCamera = cam.GetComponent<CsCamera>();
+
+        isBatteryHaving = false;
+
+        isAbleEscape = false;
 
     }
     void Start()
@@ -133,8 +141,6 @@ public class CsPlayer : MonoBehaviour
 
         if (hit.transform.tag == "ActiveObject")
         {
-            ui.GetComponent<CsUIControll>().TextUp(true, "활성화하려면 E를 누르시오");
-
             ui.GetComponent<CsUIControll>().RayCast();
 
             hit.transform.gameObject.GetComponent<CsObject>().RayCast();

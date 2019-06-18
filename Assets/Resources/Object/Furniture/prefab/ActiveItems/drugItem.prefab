@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6147133739441456438}
   - component: {fileID: 464865795532519887}
   - component: {fileID: 3278393317310625453}
-  - component: {fileID: 8245195161641912575}
+  - component: {fileID: 1088683788975898243}
   m_Layer: 0
-  m_Name: bottle_fix
+  m_Name: drugItem
   m_TagString: ActiveObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -3531946766418785785, guid: 012e67945b583ac4eb3e877535a97797, type: 3}
---- !u!114 &8245195161641912575
+--- !u!114 &1088683788975898243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,6 +102,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2184068758566587667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4debe05cbe4bad47be6d0a0e88ec132, type: 3}
+  m_Script: {fileID: 11500000, guid: 663163d384b7900478df0c9a848a52dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1073436875682630840}
   - component: {fileID: 8340274644473968270}
   - component: {fileID: 2342455590902205047}
-  - component: {fileID: 9006452598488020093}
-  - component: {fileID: 1174105234831334129}
+  - component: {fileID: 3706389260532423587}
+  - component: {fileID: 4922295980041475159}
   m_Layer: 0
   m_Name: battery
   m_TagString: ActiveObject
@@ -79,7 +79,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &9006452598488020093
+--- !u!114 &3706389260532423587
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,11 +88,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4088922107978235563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4debe05cbe4bad47be6d0a0e88ec132, type: 3}
+  m_Script: {fileID: 11500000, guid: 75d15965e44cc464080f930c912b64fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!64 &1174105234831334129
-MeshCollider:
+--- !u!65 &4922295980041475159
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,7 +101,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -951608786083511892, guid: dff84b2712c4a4c429591346acb6bc9f, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.3943171, y: 0.49062446, z: 0.96630496}
+  m_Center: {x: -0.004679816, y: -0.0066415537, z: 0.48315236}

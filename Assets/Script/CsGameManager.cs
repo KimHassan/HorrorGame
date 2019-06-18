@@ -60,7 +60,9 @@ public class CsGameManager : MonoBehaviour
     public GameObject AddDigitalClock(int time = 0)
     {
         GameObject clock = clockPrefab;
+
         CsDigitalClock digitalClock = clock.GetComponent<CsDigitalClock>();
+
         digitalClock.ClockTime = time;
 
         clockDisposition.Init("ClockPosition", clockPrefab, 1);
@@ -97,6 +99,7 @@ public class GAME_USUALLY : GAME_STATE
         if ((int)manager.Time % 30 == 0)
         {
             manager.AddDigitalClock(5);
+
             manager.GameState = new MONSTER_WAITING();
         }
     }

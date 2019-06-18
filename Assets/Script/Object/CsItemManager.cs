@@ -27,7 +27,23 @@ class ItemObject : MonoBehaviour
    public void SetItem(int pos)
     {
 
-            GameObject temp = Instantiate(obj, allPosition[pos].transform.position, Quaternion.identity);
+        GameObject temp = Instantiate(obj, allPosition[pos].transform.position, Quaternion.identity);
+
+        temp.transform.parent = allPosition[pos].transform.parent;
+
+
+        temp.transform.rotation = allPosition[pos].transform.rotation;
+
+
+        allPosition.RemoveAt(pos);
+
+    }
+
+    public void SetItem()
+    {
+        int pos = Random.Range(0, allPosition.Count);
+
+        GameObject temp = Instantiate(obj, allPosition[pos].transform.position, Quaternion.identity);
 
         temp.transform.parent = allPosition[pos].transform.parent;
 
@@ -45,26 +61,49 @@ class ItemObject : MonoBehaviour
 public class CsItemManager : MonoBehaviour
 {
     
-    public GameObject drugItem; // drug의 프리펩
+    public GameObject drugPrefab; // drug의 프리펩
 
-    public GameObject keyItem;
+    public GameObject batteryPrefab;
+
+    public GameObject clockPrefab;
 
     ItemObject DrugItems = new ItemObject();
 
-    ItemObject KeyItems = new ItemObject();
+    ItemObject BatteryItems = new ItemObject();
 
+    ItemObject ClockItems = new ItemObject();
 
     // Start is called before the first frame update
     void Start()
     {
         
-       KeyItems.Init("ItemPosition", keyItem, 5);
+       BatteryItems.Init("ItemPosition", batteryPrefab, 3);
 
-       DrugItems.Init("DrugPosition", drugItem, 5);
+       DrugItems.Init("DrugPosition", drugPrefab, 5);
 
-     
+    }
 
+    public void AddDrugItems()
+    {
+        DrugItems.SetItem();
+    }
 
+    public void AddBatteryItems()
+    {
+        BatteryItems.SetItem();
+    }
+
+    public GameObject AddDigitalClock(int time = 0)
+    {
+        GameObject clock = clockPrefab;
+
+        CsDigitalClock digitalClock = clock.GetComponent<CsDigitalClock>();
+
+        digitalClock.ClockTime = time;
+
+        ClockItems.Init("ClockPosition", clockPrefab, 1);
+
+        return clock;
     }
 
     // Update is called once per frame
