@@ -42,18 +42,24 @@ public class CsObjectGenerator : CsObject
     public override void Active()
     {
         if (isFinish)
+        {
             return;
+        }
+
 
         if (Player.isBatteryHaving == false)
+        {
+            CsUIControll.instance.ChangeText("배터리를 가지고 있지 않다.");
             return;
-
+        }
         PutBattery();
+
+        InitAllObject();
 
         ItemManager.AddBatteryItems();
 
         ItemManager.AddDrugItems();
 
-        //InitAllObject();
     }
 
     void PutBattery()
@@ -78,7 +84,7 @@ public class CsObjectGenerator : CsObject
 
         foreach(GameObject obj in gameObjects)
         {
-            Debug.Log("first:" + obj.name);
+            Debug.Log("first:" + obj.name +"in");
 
             if (obj.name == "Localclock")
                 continue;

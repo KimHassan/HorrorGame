@@ -42,7 +42,7 @@ public class CsBattery : CsObject
 
     public override void Active()
     {
-        
+        CsUIControll.instance.ChangeText("배터리를 얻었다.");
         itemActive();
     }
 

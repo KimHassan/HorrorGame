@@ -21,8 +21,15 @@ public class CsDoorLock : CsObject
 
     public override void Active()
     {
-        if(Player.isAbleEscape)
+        if (Player.isAbleEscape)
+        {
+            
             door.GetComponent<CsObjectRotateObject>().Active();
+        }
+        else
+        {
+            CsUIControll.instance.ChangeText("문이 열리지 않는다.");
+        }
     }
 
 

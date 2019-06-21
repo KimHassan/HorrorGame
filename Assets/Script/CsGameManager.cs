@@ -112,6 +112,7 @@ public class MONSTER_WAITING : GAME_STATE
         if (manager.MonsterSpawnTime < 0 && manager.monster.activeSelf == false)
         {
             manager.MonsterAwake();
+
             manager.GameState = new MONSTER_ACTIVE();
         }
     }
