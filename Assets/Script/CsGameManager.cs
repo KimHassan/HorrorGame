@@ -25,8 +25,6 @@ public class CsGameManager : MonoBehaviour
     float eventTime = 0;
 
     bool isMonsterAwake = false;
-
-    private ItemObject clockDisposition = new ItemObject();
     
     private GAME_STATE gameState = new GAME_USUALLY();
 
@@ -59,15 +57,15 @@ public class CsGameManager : MonoBehaviour
 
     public GameObject AddDigitalClock(int time = 0)
     {
-        GameObject clock = clockPrefab;
+        GameObject[] clock = GameObject.FindGameObjectsWithTag("Clock");
 
-        CsDigitalClock digitalClock = clock.GetComponent<CsDigitalClock>();
+        int index = Random.Range(0, clock.Length - 1);
+        CsDigitalClock digitalClock = clock[index].GetComponent<CsDigitalClock>();
 
-        digitalClock.ClockTime = time;
+        digitalClock.GetComponentInChildren<Text>();
+        digitalClock.StartTimeCounting(time);
 
-        clockDisposition.Init("ClockPosition", clockPrefab, 1);
-
-        return clock;
+        return digitalClock.gameObject;
     }
 
     public void MonsterAwake()

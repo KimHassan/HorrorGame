@@ -45,8 +45,6 @@ public class CsDigitalClock : MonoBehaviour
 
         activeItem = clock.GetComponent<CsObjectActiveItem>();
         activeItem.itemActive = ActiveClock;
-
-        StartTimeCounting();
     }
 
     // Update is called once per frame
@@ -58,8 +56,9 @@ public class CsDigitalClock : MonoBehaviour
         textMeshClock.text = string.Format("{0:D2}:{1:D2}", minute, second);
     }
 
-    public void StartTimeCounting()
+    public void StartTimeCounting(float time)
     {
+        clockTime = time;
         StartCoroutine(Timer());
     }
 
