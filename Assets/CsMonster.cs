@@ -10,10 +10,15 @@ public class CsMonster : MonoBehaviour
     private GameObject player = null;
 
     private NavMeshAgent nav = null;
+
     // 이동 관련
     [SerializeField]
     private List<Vector3> destinationList = new List<Vector3>();
     private int targetPoint = 0;
+
+
+    public GameObject monsterModel = null;
+
 
     public enum MONSTER_STATE
     {
@@ -65,6 +70,25 @@ public class CsMonster : MonoBehaviour
     void MonsterTrakingMove()
     {
         nav.SetDestination(player.transform.position);
+    }
+
+    void MonsterTrakingVisual()
+    {
+
+    }
+
+    IEnumerator MonsterTrakingEnable()
+    {
+        bool isVisual = true;
+        while(MoveState == MONSTER_STATE.MONSTER_TRAKING)
+        {
+            monsterModel.SetActive(isVisual);
+
+            isVisual = !isVisual;
+
+            float rand = Random.Range(1.0f, 3.0f);
+            yield return new WaitForSeconds(rand);
+        }
     }
 
     void MonsterPatrolMove()
