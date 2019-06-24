@@ -724,6 +724,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1906089906, guid: 40fbcd6b121d67f4491b1565e09c8d60, type: 3}
+      propertyPath: antialiasingMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40fbcd6b121d67f4491b1565e09c8d60, type: 3}
 --- !u!1 &1311766605 stripped
@@ -1532,6 +1536,11 @@ PrefabInstance:
     - target: {fileID: 4530980230692052947, guid: c80dc1f563a3ad34b8b91a42275514b5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388072213253297083, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: clockTime
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

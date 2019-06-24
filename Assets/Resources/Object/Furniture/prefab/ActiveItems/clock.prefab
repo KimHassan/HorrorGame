@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clock: {fileID: 488439767747349185}
   text: {fileID: 4619569199108059074}
-  clockTime: 5
+  clockTime: 0
 --- !u!1 &4619569199108059074
 GameObject:
   m_ObjectHideFlags: 0
