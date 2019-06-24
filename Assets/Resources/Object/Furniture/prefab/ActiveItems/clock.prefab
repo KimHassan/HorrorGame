@@ -28,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488439767747349185}
-  m_LocalRotation: {x: -0.75830406, y: -0, z: -0, w: -0.65190107}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4153591, y: 0.41535917, z: 0.41535917}
   m_Children:
   - {fileID: 4619569199108059079}
   m_Father: {fileID: 2531033580872256144}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -261.37, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -270, y: 0, z: 0}
 --- !u!33 &5604472478385079012
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 2531033580872256144}
   - component: {fileID: 6233863020709648106}
   m_Layer: 0
-  m_Name: Clock
+  m_Name: clock
   m_TagString: Clock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
