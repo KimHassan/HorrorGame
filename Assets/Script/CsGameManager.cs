@@ -16,16 +16,15 @@ public class CsGameManager : MonoBehaviour
     private CsMonster csMonster;
 
     [SerializeField]
-    private GameObject clockPrefab = null;
-
-    [SerializeField]
     private float monsterSpawnTime = 0;
 
     float time = 0;
     float eventTime = 0;
 
     bool isMonsterAwake = false;
-    
+
+    private CsDigitalClock activeClock = null;
+
     private GAME_STATE gameState = new GAME_USUALLY();
 
     // Property
@@ -60,12 +59,12 @@ public class CsGameManager : MonoBehaviour
         GameObject[] clock = GameObject.FindGameObjectsWithTag("Clock");
 
         int index = Random.Range(0, clock.Length - 1);
-        CsDigitalClock digitalClock = clock[index].GetComponent<CsDigitalClock>();
+        activeClock = clock[index].GetComponent<CsDigitalClock>();
 
-        digitalClock.GetComponentInChildren<Text>();
-        digitalClock.StartTimeCounting(time);
+        activeClock.GetComponentInChildren<Text>();
+        activeClock.StartTimeCounting(time);
 
-        return digitalClock.gameObject;
+        return activeClock.gameObject;
     }
 
     public void MonsterAwake()
@@ -73,12 +72,8 @@ public class CsGameManager : MonoBehaviour
         monster.SetActive(true);
         isMonsterAwake = true;
         GameObject[] clockList = GameObject.FindGameObjectsWithTag("Clock");
-        for (int i = 0; i < clockList.Length; i++)
-        {
-            GameObject clock = clockList[i];
-            monster.transform.position = clock.transform.position;
-            clock.GetComponent<CsDigitalClock>().Mute = true;
-        }
+        monster.transform.position = activeClock.transform.position;
+        activeClock.GetComponent<CsDigitalClock>().Mute = true;
         monster.transform.LookAt(player.transform);
     }
 }
