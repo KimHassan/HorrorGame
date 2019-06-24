@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CsCamera : MonoBehaviour
 {
@@ -70,6 +71,7 @@ public class CsCamera : MonoBehaviour
                 originPos = transform.localPosition;
                 StartCoroutine(Shake(0.02f, 3));
                 animator.enabled = false;
+
                 break;
         }
     }
@@ -85,5 +87,6 @@ public class CsCamera : MonoBehaviour
             yield return new WaitForSeconds(0.03f);
         }
         transform.localPosition = originPos;
+        SceneManager.LoadScene("GameOverScene");
     }
 }

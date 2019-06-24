@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+
+    AudioSource musicPlayer;
+
+    AudioClip normal_BG;
+
+    AudioClip monster_BG;
+
+
+
+    
     // Start is called before the first frame update
     void Start()
     {

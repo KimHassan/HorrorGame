@@ -40,7 +40,8 @@ public class CsGameManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-        DontDestroyOnLoad(this);
+       // DontDestroyOnLoad(this);
+
         csMonster = monster.GetComponent<CsMonster>();
     }
 
