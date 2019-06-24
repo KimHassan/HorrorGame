@@ -129,7 +129,7 @@ public class CsPlayer : MonoBehaviour
 
         Debug.DrawRay(ray.origin, ray.direction * 2, Color.red);
 
-        if (Physics.Raycast(ray, out hit, 3.0f))
+        if (Physics.Raycast(ray, out hit, 1.0f))
         {
             RayEvent();
         }

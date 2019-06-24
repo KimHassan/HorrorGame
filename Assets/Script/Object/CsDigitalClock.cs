@@ -30,21 +30,24 @@ public class CsDigitalClock : MonoBehaviour
     }
 
     public float ClockTime { get => clockTime; set => clockTime = value; }
+    public GameObject Text { get => text; set => text = value; }
 
     public void ActiveClock()
     {
         Mute = true;
+        Text.SetActive(false);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        textMeshClock = text.GetComponent<TextMesh>();
+        textMeshClock = Text.GetComponent<TextMesh>();
         audio = clock.GetComponent<AudioSource>();
         Mute = true;
 
         activeItem = clock.GetComponent<CsObjectActiveItem>();
         activeItem.itemActive = ActiveClock;
+        Text.SetActive(false);
     }
 
     // Update is called once per frame
@@ -69,6 +72,8 @@ public class CsDigitalClock : MonoBehaviour
             ClockTime -= 1.0f;
             yield return new WaitForSeconds(1.0f);
         }
+        if (text.activeSelf == false)
+            yield break;
         Mute = false;
         StartCoroutine(SpawnTimer());
         yield break;

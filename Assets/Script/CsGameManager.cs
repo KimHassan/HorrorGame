@@ -62,7 +62,9 @@ public class CsGameManager : MonoBehaviour
         int index = Random.Range(0, clock.Length - 1);
         activeClock = clock[index].GetComponent<CsDigitalClock>();
 
-        activeClock.GetComponentInChildren<Text>();
+        activeClock.Text.SetActive(true);
+
+
         activeClock.StartTimeCounting(time);
 
         return activeClock.gameObject;
@@ -75,6 +77,7 @@ public class CsGameManager : MonoBehaviour
         GameObject[] clockList = GameObject.FindGameObjectsWithTag("Clock");
         monster.transform.position = activeClock.transform.position;
         activeClock.GetComponent<CsDigitalClock>().Mute = true;
+        activeClock.Text.SetActive(false);
         monster.transform.LookAt(player.transform);
     }
 }

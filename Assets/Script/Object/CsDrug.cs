@@ -42,8 +42,8 @@ public class CsDrug : CsObject
 
     public override void Active()
     {
-
         CsUIControll.instance.ChangeText("알약을 얻었다.");
+        Camera.main.GetComponent<CsCamera>().CameraVolume = CsCamera.CAMERA_VOLUME.CAMERA_FILL;
 
         itemActive();
     }
