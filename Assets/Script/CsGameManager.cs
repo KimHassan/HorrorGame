@@ -29,7 +29,9 @@ public class CsGameManager : MonoBehaviour
 
     // Property
     public float MonsterSpawnTime { get => monsterSpawnTime; set => monsterSpawnTime = value; }
+
     public GAME_STATE GameState { get => gameState; set => gameState = value; }
+
     public float Time { get => time; set => time = value; }
 
     private void Awake()
@@ -60,9 +62,11 @@ public class CsGameManager : MonoBehaviour
         GameObject[] clock = GameObject.FindGameObjectsWithTag("Clock");
 
         int index = Random.Range(0, clock.Length - 1);
+
         activeClock = clock[index].GetComponent<CsDigitalClock>();
 
         activeClock.GetComponentInChildren<Text>();
+
         activeClock.StartTimeCounting(time);
 
         return activeClock.gameObject;
@@ -71,11 +75,21 @@ public class CsGameManager : MonoBehaviour
     public void MonsterAwake()
     {
         monster.SetActive(true);
+
         isMonsterAwake = true;
+
         GameObject[] clockList = GameObject.FindGameObjectsWithTag("Clock");
+
         monster.transform.position = activeClock.transform.position;
+
         activeClock.GetComponent<CsDigitalClock>().Mute = true;
+
         monster.transform.LookAt(player.transform);
+
+        SoundManager.instance.ChangeBgm("monster_BGM");
+
+        csMonster.StartTracking();
+
     }
 }
 

@@ -20,7 +20,7 @@ public class TitleScene : MonoBehaviour
 
     public void StartButton()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("IntroScene");
     }
     public void SettingButton()
     {

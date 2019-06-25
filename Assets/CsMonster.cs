@@ -67,6 +67,14 @@ public class CsMonster : MonoBehaviour
         }
     }
 
+    public void StartTracking()
+    {
+        MoveState = MONSTER_STATE.MONSTER_TRAKING;
+
+        StartCoroutine("MonsterTrakingEnable");
+
+    }
+
     void MonsterTrakingMove()
     {
         nav.SetDestination(player.transform.position);
@@ -80,6 +88,9 @@ public class CsMonster : MonoBehaviour
     IEnumerator MonsterTrakingEnable()
     {
         bool isVisual = true;
+
+        float playerToMonster = 0;
+
         while(MoveState == MONSTER_STATE.MONSTER_TRAKING)
         {
             monsterModel.SetActive(isVisual);
