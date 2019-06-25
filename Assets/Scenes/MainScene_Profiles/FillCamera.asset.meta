@@ -1,10 +1,4 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: ab51d431daab6b34e8e575c73afbedab
-folderAsset: yes
-DefaultImporter:
-  externalObjects: {}
-=======
 <<<<<<< HEAD:Assets/Scenes/MainScene_Profiles/FillCamera.asset.meta
 guid: 4abef9efe40b017419931c9618f347d0
 NativeFormatImporter:
@@ -15,7 +9,6 @@ DefaultImporter:
 >>>>>>> 193f449f16f0a3cca37566b6bb0f47d438757b5a:Assets/Cinematic/Cinemachine/Timeline.meta
   externalObjects: {}
   mainObjectFileID: 11400000
->>>>>>> c451d0d9eaec372f1fb520c181c91a54ba1e0549
   userData: 
   assetBundleName: 
   assetBundleVariant: 

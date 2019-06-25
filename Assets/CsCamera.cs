@@ -12,8 +12,18 @@ public class CsCamera : MonoBehaviour
         CAMERA_DEATH
     }
 
+    public enum CAMERA_VOLUME
+    {
+        CAMERA_MAIN,
+        CAMERA_FILL
+    }
+
     [SerializeField]
     private CAMERA_STATE cameraState = CAMERA_STATE.CAMERA_AWAKE;
+    private CAMERA_VOLUME cameraVolume = CAMERA_VOLUME.CAMERA_MAIN;
+
+    public GameObject postProcessingMain;
+    public GameObject postProcessingFill;
 
     private Animator animator;
     private Camera camComponent;
@@ -24,6 +34,19 @@ public class CsCamera : MonoBehaviour
         get
         {
             return (CAMERA_STATE)animator.GetInteger("PlayerCinemaScene");
+        }
+    }
+
+    public CAMERA_VOLUME CameraVolume
+    {
+        get => cameraVolume;
+        set
+        {
+            cameraVolume = value;
+            if (cameraVolume == CAMERA_VOLUME.CAMERA_FILL)
+            {
+                postProcessingFill.transform.Translate(new Vector3(5, 0, 0));
+            }
         }
     }
 
@@ -52,6 +75,19 @@ public class CsCamera : MonoBehaviour
             case CAMERA_STATE.CAMERA_DEATH:
                 camComponent.fieldOfView = 35;
                 
+                break;
+        }
+        switch (CameraVolume)
+        {
+            case CAMERA_VOLUME.CAMERA_MAIN:
+                postProcessingMain.SetActive(true);
+                postProcessingFill.SetActive(false);
+                break;
+            case CAMERA_VOLUME.CAMERA_FILL:
+                postProcessingMain.SetActive(false);
+                postProcessingFill.SetActive(true);
+                postProcessingFill.transform.position = Vector3.MoveTowards(
+                    postProcessingFill.transform.position, transform.position, 0.1f);
                 break;
         }
     }

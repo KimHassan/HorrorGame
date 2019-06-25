@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: f5efdbb170b0b6e4cb1f2875b68bac34
+<<<<<<< HEAD:Assets/Cinematic/PostProcessing.meta
+guid: 434360dff42f2c94ea4e4f4e414f39cb
+=======
+guid: f26fb85827ea0cc4daeced9e27953fbe
+>>>>>>> b7a1143a5855c360b62e6db79d3188962cf8d391:Assets/Cinemachine.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

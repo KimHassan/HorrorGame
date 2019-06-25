@@ -65,7 +65,12 @@ public class CsGameManager : MonoBehaviour
 
         activeClock = clock[index].GetComponent<CsDigitalClock>();
 
+<<<<<<< HEAD
         activeClock.GetComponentInChildren<Text>();
+=======
+        activeClock.Text.SetActive(true);
+
+>>>>>>> d6c87a67b77cb53fce7b0bbd55a892238bbebd18
 
         activeClock.StartTimeCounting(time);
 
@@ -83,7 +88,11 @@ public class CsGameManager : MonoBehaviour
         monster.transform.position = activeClock.transform.position;
 
         activeClock.GetComponent<CsDigitalClock>().Mute = true;
+<<<<<<< HEAD
 
+=======
+        activeClock.Text.SetActive(false);
+>>>>>>> d6c87a67b77cb53fce7b0bbd55a892238bbebd18
         monster.transform.LookAt(player.transform);
 
         SoundManager.instance.ChangeBgm("monster_BGM");
