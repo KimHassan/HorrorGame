@@ -14,11 +14,13 @@ public class CsMonster : MonoBehaviour
     // 이동 관련
     [SerializeField]
     private List<Vector3> destinationList = new List<Vector3>();
+
     private int targetPoint = 0;
 
 
     public GameObject monsterModel = null;
 
+    bool isVisual = true;
 
     public enum MONSTER_STATE
     {
@@ -77,17 +79,19 @@ public class CsMonster : MonoBehaviour
 
     void MonsterTrakingMove()
     {
-        nav.SetDestination(player.transform.position);
+        if(isVisual == true)
+            nav.SetDestination(player.transform.position);
     }
 
     void MonsterTrakingVisual()
     {
 
+
     }
 
     IEnumerator MonsterTrakingEnable()
     {
-        bool isVisual = true;
+        isVisual = true;
 
         float playerToMonster = 0;
 
