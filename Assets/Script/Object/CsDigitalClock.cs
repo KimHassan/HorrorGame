@@ -19,6 +19,9 @@ public class CsDigitalClock : MonoBehaviour
 
     private bool mute;
 
+    [SerializeField]
+    private bool textActive = false;
+
     public bool Mute
     {
         get => mute;
@@ -47,7 +50,7 @@ public class CsDigitalClock : MonoBehaviour
 
         activeItem = clock.GetComponent<CsObjectActiveItem>();
         activeItem.itemActive = ActiveClock;
-        Text.SetActive(false);
+        Text.SetActive(textActive);
     }
 
     // Update is called once per frame
@@ -83,7 +86,8 @@ public class CsDigitalClock : MonoBehaviour
     {
         while(Mute == false)
         {
-            CsGameManager.instance.MonsterSpawnTime -= 1;
+            if(CsGameManager.instance != null)
+                CsGameManager.instance.MonsterSpawnTime -= 1;
             yield return new WaitForSeconds(1.0f);
         }
         yield break;

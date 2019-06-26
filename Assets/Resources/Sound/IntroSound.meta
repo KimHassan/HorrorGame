@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Resources/Sound/IntroSound.meta
-guid: 62a0b2f53f9867a4abfad014cfc41ebb
-=======
-guid: 3245b471be4795e49b49266ac617c7d7
->>>>>>> d6c87a67b77cb53fce7b0bbd55a892238bbebd18:Assets/Resources/PostProcessing.meta
+guid: dd5a4bfd51caadc4e8f7cde6b7948ed9
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

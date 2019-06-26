@@ -41,6 +41,27 @@ public class CsPlayer : MonoBehaviour
     public bool isBatteryHaving;
 
     public bool isAbleEscape;
+
+    public enum CAMERA_VOLUME
+    {
+        CAMERA_MAIN,
+        CAMERA_FILL
+    }
+    private CAMERA_VOLUME cameraVolume = CAMERA_VOLUME.CAMERA_MAIN;
+
+    public CAMERA_VOLUME CameraVolume
+    {
+        get => cameraVolume;
+        set
+        {
+            cameraVolume = value;
+            if (cameraVolume == CAMERA_VOLUME.CAMERA_FILL)
+            {
+                csCamera.postProcessingFill.transform.Translate(new Vector3(5, 0, 0));
+            }
+        }
+    }
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -159,6 +180,35 @@ public class CsPlayer : MonoBehaviour
         if(isDead == true)
         {
             myCollider.enabled = false;
+        }
+        switch (CameraVolume)
+        {
+            case CAMERA_VOLUME.CAMERA_MAIN:
+                csCamera.postProcessingMain.SetActive(true);
+                csCamera.postProcessingFill.SetActive(false);
+
+                break;
+            case CAMERA_VOLUME.CAMERA_FILL:
+                csCamera.postProcessingMain.SetActive(false);
+                csCamera.postProcessingFill.SetActive(true);
+
+                csCamera.postProcessingFill.transform.position = Vector3.MoveTowards(
+                csCamera.postProcessingFill.transform.position, csCamera.transform.position, 0.1f);
+
+                StartCoroutine(FillCoroutine());
+                break;
+        }
+    }
+
+    IEnumerator FillCoroutine()
+    {
+        float time = 0;
+        while(true)
+        {
+            time += 1;
+            if (time > 5)
+                break;
+            yield return new WaitForSeconds(1.0f);
         }
     }
 }

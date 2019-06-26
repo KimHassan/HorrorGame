@@ -14,8 +14,9 @@ public class CsGameManager : MonoBehaviour
     
     public GameObject monster = null;
     private CsMonster csMonster;
+    
+    public float basicMonsterSpawnTime = 0;
 
-    [SerializeField]
     private float monsterSpawnTime = 0;
 
     float time = 0;
@@ -25,7 +26,7 @@ public class CsGameManager : MonoBehaviour
 
     private CsDigitalClock activeClock = null;
 
-    private GAME_STATE gameState = new GAME_USUALLY();
+    private GAME_STATE gameState = null;
 
     // Property
     public float MonsterSpawnTime { get => monsterSpawnTime; set => monsterSpawnTime = value; }
@@ -39,8 +40,8 @@ public class CsGameManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-       // DontDestroyOnLoad(this);
-
+        // DontDestroyOnLoad(this);
+        gameState = new GAME_USUALLY(this);
         csMonster = monster.GetComponent<CsMonster>();
     }
 
@@ -65,16 +66,14 @@ public class CsGameManager : MonoBehaviour
 
         activeClock = clock[index].GetComponent<CsDigitalClock>();
 
-<<<<<<< HEAD
+
         activeClock.GetComponentInChildren<Text>();
-=======
+
         activeClock.Text.SetActive(true);
-
->>>>>>> d6c87a67b77cb53fce7b0bbd55a892238bbebd18
-
+        
         activeClock.StartTimeCounting(time);
 
-        return activeClock.gameObject;
+        return activeClock.Text;
     }
 
     public void MonsterAwake()
@@ -88,11 +87,9 @@ public class CsGameManager : MonoBehaviour
         monster.transform.position = activeClock.transform.position;
 
         activeClock.GetComponent<CsDigitalClock>().Mute = true;
-<<<<<<< HEAD
 
-=======
         activeClock.Text.SetActive(false);
->>>>>>> d6c87a67b77cb53fce7b0bbd55a892238bbebd18
+
         monster.transform.LookAt(player.transform);
 
         SoundManager.instance.ChangeBgm("monster_BGM");
@@ -109,21 +106,33 @@ public interface GAME_STATE
 
 public class GAME_USUALLY : GAME_STATE
 {
+    public float time = 0;
+
+    public GAME_USUALLY(CsGameManager manager)
+    {
+        manager.MonsterSpawnTime = manager.basicMonsterSpawnTime;
+    }
     public void Update(CsGameManager manager)
     {
-        manager.Time += UnityEngine.Time.deltaTime;
+        time += UnityEngine.Time.deltaTime;
 
-        if ((int)manager.Time % 30 == 0)
+        if (time >= 30)
         {
-            manager.AddDigitalClock(5);
+            GameObject clockText = manager.AddDigitalClock(5);
 
-            manager.GameState = new MONSTER_WAITING();
+            manager.GameState = new MONSTER_WAITING(clockText);
         }
     }
 }
 
 public class MONSTER_WAITING : GAME_STATE
 {
+    GameObject clockText;
+    public MONSTER_WAITING(GameObject _clockText)
+    {
+        clockText = _clockText;
+    }
+
     public void Update(CsGameManager manager)
     {
         if (manager.MonsterSpawnTime < 0 && manager.monster.activeSelf == false)
@@ -132,6 +141,10 @@ public class MONSTER_WAITING : GAME_STATE
 
             manager.GameState = new MONSTER_ACTIVE();
         }
+        else if(clockText.activeSelf == false)
+        {
+            manager.GameState = new GAME_USUALLY(manager);
+        }
     }
 }
 
@@ -139,6 +152,6 @@ public class MONSTER_ACTIVE : GAME_STATE
 {
     public void Update(CsGameManager manager)
     {
-
+        
     }
 }
