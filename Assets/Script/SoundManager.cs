@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
 
         
 
-        normal_BGM = Resources.Load<AudioClip>("Sound/normal_BGM");
+        normal_BGM = Resources.Load<AudioClip>("Sound/BGM/normal_BGM");
 
         musicPlayer.PlayOneShot(normal_BGM);
     }
@@ -40,7 +40,7 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeBgm(string _fileName)
     {
-        normal_BGM = Resources.Load<AudioClip>("Sound/" + _fileName);
+        normal_BGM = Resources.Load<AudioClip>("Sound/BGM/" + _fileName);
 
         musicPlayer.Stop();
 
