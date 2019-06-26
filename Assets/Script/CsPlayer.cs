@@ -58,6 +58,8 @@ public class CsPlayer : MonoBehaviour
             if (cameraVolume == CAMERA_VOLUME.CAMERA_FILL)
             {
                 csCamera.postProcessingFill.transform.Translate(new Vector3(5, 0, 0));
+
+                StartCoroutine(FillCoroutine());
             }
         }
     }
@@ -98,17 +100,20 @@ public class CsPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "Monster")
         {
-            CsMonster csMonster = other.gameObject.GetComponent<CsMonster>();
-            csMonster.AttackPlayer(transform.position, transform.forward);
-            csCamera.ChangeCameraState(CsCamera.CAMERA_STATE.CAMERA_DEATH);
-            cam.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            isDead = true;
+            PlayerDie(other.gameObject);
         }
     }
 
     private void FixedUpdate()
     {
-        if (csCamera.CameraState != CsCamera.CAMERA_STATE.CAMERA_IDLE) return;
+        switch (csCamera.CameraState)
+        {
+            case CsCamera.CAMERA_STATE.CAMERA_AWAKE:
+                return;
+            case CsCamera.CAMERA_STATE.CAMERA_DEATH:
+                Running = false;
+                return;
+        }
         MoveUpdate();
 
     }
@@ -126,6 +131,16 @@ public class CsPlayer : MonoBehaviour
         rigidBody.MovePosition(transform.position + moveMent * moveSpeed * Time.deltaTime);
     }
 
+    void PlayerDie(GameObject monster)
+    {
+        CsMonster csMonster = monster.gameObject.GetComponent<CsMonster>();
+        csMonster.AttackPlayer(transform.position, transform.forward);
+
+            csCamera.ChangeCameraState(CsCamera.CAMERA_STATE.CAMERA_DEATH);
+        cam.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+        isDead = true;
+    }
 
     void SightUpdate() // 시야 움직임
     { 
@@ -194,8 +209,6 @@ public class CsPlayer : MonoBehaviour
 
                 csCamera.postProcessingFill.transform.position = Vector3.MoveTowards(
                 csCamera.postProcessingFill.transform.position, csCamera.transform.position, 0.1f);
-
-                StartCoroutine(FillCoroutine());
                 break;
         }
     }
@@ -205,10 +218,11 @@ public class CsPlayer : MonoBehaviour
         float time = 0;
         while(true)
         {
-            time += 1;
             if (time > 5)
                 break;
+            time += 1;
             yield return new WaitForSeconds(1.0f);
         }
+        cameraVolume = CAMERA_VOLUME.CAMERA_MAIN;
     }
 }

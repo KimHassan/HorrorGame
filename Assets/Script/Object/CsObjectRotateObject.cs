@@ -16,6 +16,11 @@ public class CsObjectRotateObject : CsObject
 
     float moveSpeed = 100f;
 
+    [SerializeField]
+    private AudioClip openAudio;
+    [SerializeField]
+    private AudioClip closeAudio;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +35,7 @@ public class CsObjectRotateObject : CsObject
 
         isOpen = false;
 
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,9 +63,17 @@ public class CsObjectRotateObject : CsObject
     IEnumerator RotateObject()
     {
         if (isOpen)
+        {
             destination = originRot;
+            if (audioSource && closeAudio)
+                audioSource.PlayOneShot(closeAudio);
+        }
         else
+        {
             destination = destRot;
+            if (audioSource && openAudio)
+                audioSource.PlayOneShot(openAudio);
+        }
 
         isOpen = !isOpen;
 
