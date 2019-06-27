@@ -11,8 +11,7 @@ public class CsCamera : MonoBehaviour
         CAMERA_IDLE,
         CAMERA_DEATH
     }
-
-
+    
     [SerializeField]
     private CAMERA_STATE cameraState = CAMERA_STATE.CAMERA_AWAKE;
 
@@ -74,14 +73,20 @@ public class CsCamera : MonoBehaviour
                 break;
             case CAMERA_STATE.CAMERA_DEATH:
                 originPos = transform.localPosition;
-                StartCoroutine(Shake(0.02f, 3));
+                StartCoroutine(Shake(0.02f, 3, SceneChange));
                 animator.enabled = false;
 
                 break;
         }
     }
+    public void SceneChange()
+    {
+        transform.localPosition = originPos;
+        SceneManager.LoadScene("GameOverScene");
+    }
 
-    public IEnumerator Shake(float _amount, float _duration)
+    public delegate void ShakeActiveFunc();
+    public IEnumerator Shake(float _amount, float _duration, ShakeActiveFunc execution)
     {
         float timer = 0;
         while (timer <= _duration)
@@ -91,7 +96,6 @@ public class CsCamera : MonoBehaviour
             timer += 0.03f;
             yield return new WaitForSeconds(0.03f);
         }
-        transform.localPosition = originPos;
-        SceneManager.LoadScene("GameOverScene");
+        execution();
     }
 }
