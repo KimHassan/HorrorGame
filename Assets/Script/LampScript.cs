@@ -27,13 +27,13 @@ public class LampScript : MonoBehaviour
     {
         if (texture.GetPixel((int)((Time.time - time) * 100), 10).r == 0)
         {
-            if(lampLight.activeSelf == true)
+            if(lampLight.activeSelf == true && flickAudio)
                 flickAudio.PlayOneShot(flickAudio.clip);
             lampLight.SetActive(false);
         }
         else
         {
-            if (lampLight.activeSelf == false)
+            if (lampLight.activeSelf == false && flickAudio)
                 flickAudio.PlayOneShot(flickAudio.clip);
             lampLight.SetActive(true);
         }

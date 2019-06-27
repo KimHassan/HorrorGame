@@ -79,8 +79,13 @@ public class CsMonster : MonoBehaviour
 
     void MonsterTrakingMove()
     {
-        if(isVisual == true)
+        if (isVisual == true)
+        {
+            nav.isStopped = false;
             nav.SetDestination(player.transform.position);
+        }
+        else
+            nav.isStopped = true;
     }
 
     void MonsterTrakingVisual()
@@ -130,5 +135,10 @@ public class CsMonster : MonoBehaviour
         transform.LookAt(playerPos);
 
         MoveState = MONSTER_STATE.MONSTER_IDLE;
+
+        // 모델링 보임.
+        StopCoroutine("MonsterTrakingEnable");
+        isVisual = true;
+        monsterModel.SetActive(isVisual);
     }
 }
