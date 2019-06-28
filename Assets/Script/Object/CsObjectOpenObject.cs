@@ -13,9 +13,14 @@ public class CsObjectOpenObject : CsObject
 
     bool isOpen;
 
+    AudioSource audioSource;
+
+    public AudioClip openSound;
+    public AudioClip closeSound;
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         originPos = transform.localPosition;
 
         destPos = originPos + plusDestPos;
@@ -52,10 +57,15 @@ public class CsObjectOpenObject : CsObject
     IEnumerator OpenObject()
     {
         if (isOpen)
+        {
             destination = originPos;
+            audioSource.PlayOneShot(closeSound);
+        }
         else
+        {
             destination = destPos;
-
+            audioSource.PlayOneShot(openSound);
+        }
         isOpen = !isOpen;
 
         while (destination != transform.localPosition)
@@ -64,5 +74,6 @@ public class CsObjectOpenObject : CsObject
 
             yield return null;
         }
+        audioSource.Stop();
     }
 }

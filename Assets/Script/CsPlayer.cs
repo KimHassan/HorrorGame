@@ -64,6 +64,8 @@ public class CsPlayer : MonoBehaviour
         }
     }
 
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -80,6 +82,9 @@ public class CsPlayer : MonoBehaviour
         isBatteryHaving = false;
 
         isAbleEscape = false;
+
+        audioSource = GetComponent<AudioSource>();
+
 
     }
     void Start()
@@ -188,6 +193,16 @@ public class CsPlayer : MonoBehaviour
             }
         }
 
+    }
+
+    public void PlaySoundEffect(string _fileName)
+    {
+        AudioClip ac = Resources.Load<AudioClip>("Sound/EffectSound/" + _fileName);
+
+        if (ac == null)
+            return;
+
+        audioSource.PlayOneShot(ac);
     }
 
     void PlayerStateMachine()

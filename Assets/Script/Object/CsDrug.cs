@@ -8,6 +8,7 @@ public class CsDrug : CsObject
 
     public ItemActive itemActive = null;
 
+    AudioSource audioSource;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class CsDrug : CsObject
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,9 +44,14 @@ public class CsDrug : CsObject
     public override void Active()
     {
         CsUIControll.instance.ChangeText("알약을 얻었다.");
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+
         player.GetComponent<CsPlayer>().CameraVolume = CsPlayer.CAMERA_VOLUME.CAMERA_FILL;
 
+        player.GetComponent<CsPlayer>().PlaySoundEffect("DrugSound");
+
+        player.GetComponent<CsPlayer>().PlaySoundEffect("HeartBounce");
         itemActive();
     }
 
