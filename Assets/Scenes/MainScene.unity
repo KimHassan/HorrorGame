@@ -706,6 +706,11 @@ PrefabInstance:
       propertyPath: ui
       value: 
       objectReference: {fileID: 2085891934}
+    - target: {fileID: 4695335066295786509, guid: 40fbcd6b121d67f4491b1565e09c8d60,
+        type: 3}
+      propertyPath: cameraState
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40fbcd6b121d67f4491b1565e09c8d60, type: 3}
 --- !u!1 &1311766605 stripped
@@ -908,6 +913,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   monster: {fileID: 930481209}
   basicMonsterSpawnTime: 7
+  clockActiveTime: 20
 --- !u!1001 &1779826519
 PrefabInstance:
   m_ObjectHideFlags: 0

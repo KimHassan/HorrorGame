@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;using UnityEngine.UI;
 
@@ -22,11 +23,11 @@ public class CsGameManager : MonoBehaviour
     float time = 0;
     float eventTime = 0;
 
-    bool isMonsterAwake = false;
-
     private CsDigitalClock activeClock = null;
 
     private GAME_STATE gameState = null;
+    
+    public float clockActiveTime;
 
     // Property
     public float MonsterSpawnTime { get => monsterSpawnTime; set => monsterSpawnTime = value; }
@@ -62,7 +63,7 @@ public class CsGameManager : MonoBehaviour
     {
         GameObject[] clock = GameObject.FindGameObjectsWithTag("Clock");
 
-        int index = Random.Range(0, clock.Length - 1);
+        int index = UnityEngine.Random.Range(0, clock.Length - 1);
 
         activeClock = clock[index].GetComponent<CsDigitalClock>();
 
@@ -80,10 +81,6 @@ public class CsGameManager : MonoBehaviour
     {
         monster.SetActive(true);
 
-        isMonsterAwake = true;
-
-        GameObject[] clockList = GameObject.FindGameObjectsWithTag("Clock");
-
         monster.transform.position = activeClock.transform.position;
 
         activeClock.GetComponent<CsDigitalClock>().Mute = true;
@@ -95,13 +92,28 @@ public class CsGameManager : MonoBehaviour
         SoundManager.instance.ChangeBgm("monster_BGM");
 
         csMonster.StartTracking();
+    }
 
+    public void MonsterStop()
+    {
+        monster.SetActive(false);
+
+        activeClock.Text.SetActive(false);
+
+        SoundManager.instance.ChangeBgm("normal_BGM");
+    }
+
+    public void ActiveDrug(object message, EventArgs e)
+    {
+        GameState.SendMessage(message);
     }
 }
 
 public interface GAME_STATE
 {
     void Update(CsGameManager manager);
+
+    void SendMessage(object message);
 }
 
 public class GAME_USUALLY : GAME_STATE
@@ -111,17 +123,24 @@ public class GAME_USUALLY : GAME_STATE
     public GAME_USUALLY(CsGameManager manager)
     {
         manager.MonsterSpawnTime = manager.basicMonsterSpawnTime;
+
     }
+
     public void Update(CsGameManager manager)
     {
         time += UnityEngine.Time.deltaTime;
 
-        if (time >= 30)
+        if (time >= manager.clockActiveTime)
         {
             GameObject clockText = manager.AddDigitalClock(5);
 
             manager.GameState = new MONSTER_WAITING(clockText);
         }
+    }
+
+    public void SendMessage(object message)
+    {
+
     }
 }
 
@@ -139,19 +158,39 @@ public class MONSTER_WAITING : GAME_STATE
         {
             manager.MonsterAwake();
 
-            manager.GameState = new MONSTER_ACTIVE();
+            manager.GameState = new MONSTER_ACTIVE(manager);
         }
         else if(clockText.activeSelf == false)
         {
             manager.GameState = new GAME_USUALLY(manager);
         }
     }
+
+    public void SendMessage(object message)
+    {
+
+    }
 }
 
 public class MONSTER_ACTIVE : GAME_STATE
 {
+    CsGameManager myManager;
+    public MONSTER_ACTIVE(CsGameManager manager)
+    {
+        myManager = manager;
+    }
+
     public void Update(CsGameManager manager)
     {
         
+    }
+
+    public void SendMessage(object message)
+    {
+        if(message.ToString().Equals("ActiveDrug"))
+        {
+            myManager.MonsterStop();
+            myManager.GameState = new GAME_USUALLY(myManager);
+        }
     }
 }
