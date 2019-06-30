@@ -206,8 +206,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18483649}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0.07, y: 1.71, z: 1.6343527}
-  m_LocalScale: {x: 1.6435, y: 1.6435, z: 1.6435}
+  m_LocalPosition: {x: 2.1, y: 1.71, z: 1.6343527}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1386,6 +1386,21 @@ PrefabInstance:
       propertyPath: closeAudio
       value: 
       objectReference: {fileID: 8300000, guid: 74bc929b824a5de4382bcdbd3ef7b7f7, type: 3}
+    - target: {fileID: 7804805083319060991, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1544845329839439373, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4501480703060087859, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f73b9992dfc2bd94c9bfa8ce9980046f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c80dc1f563a3ad34b8b91a42275514b5, type: 3}
 --- !u!1 &7446395215019674010 stripped
@@ -1490,3 +1505,72 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &8011397506903707227
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8011397507160003395, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_Name
+      value: BokDo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.3165
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2573415
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1437786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011397507160003394, guid: ba070032dfe473c42b128e5912745981,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ba070032dfe473c42b128e5912745981, type: 3}
