@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,10 @@ public class CsDrug : CsObject
     public delegate void ItemActive();
 
     public ItemActive itemActive = null;
-
+    
     AudioSource audioSource;
+    
+    public event EventHandler activeDrug;
 
     private void Awake()
     {
@@ -18,6 +21,8 @@ public class CsDrug : CsObject
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+        activeDrug += new EventHandler(CsGameManager.instance.ActiveDrug);
     }
 
     // Update is called once per frame
@@ -52,6 +57,8 @@ public class CsDrug : CsObject
         player.GetComponent<CsPlayer>().PlaySoundEffect("DrugSound");
 
         player.GetComponent<CsPlayer>().PlaySoundEffect("HeartBounce");
+
+        activeDrug("ActiveDrug", EventArgs.Empty);
         itemActive();
     }
 
