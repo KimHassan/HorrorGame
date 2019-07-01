@@ -27,7 +27,20 @@ public class CsGameManager : MonoBehaviour
 
     private GAME_STATE gameState = null;
     
-    public float clockActiveTime;
+    [SerializeField]
+    private float clockActiveTime;
+
+    // 배터리
+    private int batteryCount = 0;
+
+    // 램프
+    [SerializeField]
+    private GameObject lightLamp = null;
+    [SerializeField]
+    private GameObject blackLamp = null;
+
+    // 알약
+    private int drugCount = 0;
 
     // Property
     public float MonsterSpawnTime { get => monsterSpawnTime; set => monsterSpawnTime = value; }
@@ -35,6 +48,19 @@ public class CsGameManager : MonoBehaviour
     public GAME_STATE GameState { get => gameState; set => gameState = value; }
 
     public float Time { get => time; set => time = value; }
+
+    public int BatteryCount { get => batteryCount; set => batteryCount = value; }
+
+    public float ClockActiveTime
+    {
+        get => clockActiveTime;
+        set
+        {
+            clockActiveTime = value;
+            if (clockActiveTime < 1)
+                clockActiveTime = 1;
+        }
+    }
 
     private void Awake()
     {
@@ -56,6 +82,13 @@ public class CsGameManager : MonoBehaviour
     void Update()
     {
         GameState.Update(this);
+
+        if(BatteryCount > 1)
+        {
+            lightLamp.SetActive(false);
+            blackLamp.SetActive(true);
+            player.GetComponent<CsPlayer>().pointLight.gameObject.SetActive(true);
+        }
     }
 
 
@@ -106,6 +139,9 @@ public class CsGameManager : MonoBehaviour
     public void ActiveDrug(object message, EventArgs e)
     {
         GameState.SendMessage(message);
+        drugCount += 1;
+        if (drugCount % 2 == 0)
+            ClockActiveTime -= 4;
     }
 }
 
@@ -130,7 +166,7 @@ public class GAME_USUALLY : GAME_STATE
     {
         time += UnityEngine.Time.deltaTime;
 
-        if (time >= manager.clockActiveTime)
+        if (time >= manager.ClockActiveTime)
         {
             GameObject clockText = manager.AddDigitalClock(5);
 
