@@ -42,6 +42,9 @@ public class CsPlayer : MonoBehaviour
 
     public bool isAbleEscape;
 
+    // 라이트
+    public Light pointLight = null;
+
     public enum CAMERA_VOLUME
     {
         CAMERA_MAIN,
@@ -117,6 +120,7 @@ public class CsPlayer : MonoBehaviour
                 return;
             case CsCamera.CAMERA_STATE.CAMERA_DEATH:
                 Running = false;
+                MoveMent = Vector3.zero;
                 return;
         }
         MoveUpdate();
@@ -138,11 +142,18 @@ public class CsPlayer : MonoBehaviour
 
     void PlayerDie(GameObject monster)
     {
+        if (csCamera.CameraState == CsCamera.CAMERA_STATE.CAMERA_DEATH)
+            return;
         CsMonster csMonster = monster.gameObject.GetComponent<CsMonster>();
         csMonster.AttackPlayer(transform.position, transform.forward);
 
-            csCamera.ChangeCameraState(CsCamera.CAMERA_STATE.CAMERA_DEATH);
+        csCamera.ChangeCameraState(CsCamera.CAMERA_STATE.CAMERA_DEATH);
         cam.transform.localRotation = Quaternion.Euler(0, 0, 0);
+
+        transform.Translate(new Vector2(0, 0.4f));
+        rigidBody.useGravity = false;
+
+        cam.transform.LookAt(monster.transform.position + new Vector3(0, 0.8f));
 
         isDead = true;
     }

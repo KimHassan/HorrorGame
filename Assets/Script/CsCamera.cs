@@ -79,6 +79,7 @@ public class CsCamera : MonoBehaviour
                 break;
         }
     }
+
     public void SceneChange()
     {
         transform.localPosition = originPos;
