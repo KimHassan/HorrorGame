@@ -32,7 +32,6 @@ public class CsObjectOpenObject : CsObject
         if (openSound == null)
         {
             openSound = Resources.Load<AudioClip>("Sound/EffectSound/DrawerOpenSound");
-            Debug.Log(name);
         }
             if (closeSound == null)
             closeSound = Resources.Load<AudioClip>("Sound/EffectSound/DrawerCloseSound");

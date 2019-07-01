@@ -28,7 +28,7 @@ public class CsDoorLock : CsObject
         }
         else
         {
-            CsUIControll.instance.ChangeText("문이 열리지 않는다.");
+            CsUIControll.instance.ChangeText("문이 열리지 않는다. 전력이 없는 거 같다");
         }
     }
 

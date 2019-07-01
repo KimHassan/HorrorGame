@@ -98,4 +98,9 @@ public class CsCamera : MonoBehaviour
         }
         execution();
     }
+
+    void TextUp()
+    {
+        CsUIControll.instance.ChangeText("뭔가 이상하다. 이곳에서 나가자");
+    }
 }
