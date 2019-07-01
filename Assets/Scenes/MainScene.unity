@@ -711,6 +711,19 @@ PrefabInstance:
       propertyPath: cameraState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5414178342079883032, guid: 40fbcd6b121d67f4491b1565e09c8d60,
+        type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 594131718, guid: 40fbcd6b121d67f4491b1565e09c8d60, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 594131721, guid: 40fbcd6b121d67f4491b1565e09c8d60, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40fbcd6b121d67f4491b1565e09c8d60, type: 3}
 --- !u!1 &1311766605 stripped
@@ -913,7 +926,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   monster: {fileID: 930481209}
   basicMonsterSpawnTime: 7
-  clockActiveTime: 20
+  clockActiveTime: 16
 --- !u!1001 &1779826519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1249,6 +1262,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: monster
       objectReference: {fileID: 0}
+    - target: {fileID: 9004914816638984323, guid: b6cb08f976a909246931413dbfb2da3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5380881848161129104, guid: b6cb08f976a909246931413dbfb2da3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1308,6 +1326,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1707024354}
+    - target: {fileID: 7509332803085347310, guid: b6cb08f976a909246931413dbfb2da3c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6cb08f976a909246931413dbfb2da3c, type: 3}
 --- !u!1001 &4530980229765595390
@@ -1377,24 +1400,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6388072213253297083, guid: c80dc1f563a3ad34b8b91a42275514b5,
-        type: 3}
-      propertyPath: clockTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1014105782939626191, guid: c80dc1f563a3ad34b8b91a42275514b5,
-        type: 3}
-      propertyPath: openAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: fbd1b3c52b8f95845aa967fbf886f594, type: 3}
-    - target: {fileID: 1014105782939626191, guid: c80dc1f563a3ad34b8b91a42275514b5,
-        type: 3}
-      propertyPath: closeAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 74bc929b824a5de4382bcdbd3ef7b7f7, type: 3}
     - target: {fileID: 7804805083319060991, guid: c80dc1f563a3ad34b8b91a42275514b5,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388072213253297083, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: clockTime
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1544845329839439373, guid: c80dc1f563a3ad34b8b91a42275514b5,
@@ -1407,6 +1420,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f73b9992dfc2bd94c9bfa8ce9980046f, type: 2}
+    - target: {fileID: 1014105782939626191, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: openAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: fbd1b3c52b8f95845aa967fbf886f594, type: 3}
+    - target: {fileID: 1014105782939626191, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: closeAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 74bc929b824a5de4382bcdbd3ef7b7f7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c80dc1f563a3ad34b8b91a42275514b5, type: 3}
 --- !u!1 &7446395215019674010 stripped

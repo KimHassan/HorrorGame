@@ -129,10 +129,15 @@ public class CsMonster : MonoBehaviour
     {
         nav.enabled = false;
 
-        transform.position = playerPos + playerFrontVec * 0.5f;
-        transform.Translate(new Vector3(0, -0.1f));
+        Vector3 nextPosition = playerPos + playerFrontVec * 0.6f;
 
-        transform.LookAt(playerPos);
+        nextPosition.y = transform.position.y;
+        transform.position = nextPosition;
+
+        Vector3 look = playerPos;
+
+        look.y = transform.position.y;
+        transform.LookAt(look);
 
         MoveState = MONSTER_STATE.MONSTER_IDLE;
 
