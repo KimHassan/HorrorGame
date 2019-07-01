@@ -32,6 +32,7 @@ public class CsBattery : CsObject
     void DestroyItem()
     {
         GameObject.FindWithTag("Player").GetComponent<CsPlayer>().isBatteryHaving = true;
+        CsGameManager.instance.BatteryCount += 1;
         Destroy(this.gameObject);
     }
 

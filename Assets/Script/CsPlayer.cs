@@ -42,6 +42,9 @@ public class CsPlayer : MonoBehaviour
 
     public bool isAbleEscape;
 
+    // 라이트
+    public Light pointLight = null;
+
     public enum CAMERA_VOLUME
     {
         CAMERA_MAIN,
