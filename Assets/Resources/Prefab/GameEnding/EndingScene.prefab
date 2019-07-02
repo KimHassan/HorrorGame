@@ -664,6 +664,21 @@ PrefabInstance:
       propertyPath: Eyes
       value: 
       objectReference: {fileID: 5139219275170406351}
+    - target: {fileID: 9003552716166104144, guid: cb97b3b8116ec4a41903b06aee5e23d2,
+        type: 3}
+      propertyPath: badSound
+      value: 
+      objectReference: {fileID: 8300000, guid: de0095bf1c8f198409d492ac3983512d, type: 3}
+    - target: {fileID: 9003552716166104144, guid: cb97b3b8116ec4a41903b06aee5e23d2,
+        type: 3}
+      propertyPath: soomSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e4cd22a530a50854b8e38a854e5c1791, type: 3}
+    - target: {fileID: 9003552716166104144, guid: cb97b3b8116ec4a41903b06aee5e23d2,
+        type: 3}
+      propertyPath: crashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b4c11473559573040be074211eda6623, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb97b3b8116ec4a41903b06aee5e23d2, type: 3}
 --- !u!4 &1816903062930336612 stripped
@@ -869,9 +884,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.095912635
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1088683788975898243, guid: ddd0a2581deb1b640b20e1703512e143, type: 3}
-    - {fileID: 3278393317310625453, guid: ddd0a2581deb1b640b20e1703512e143, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd0a2581deb1b640b20e1703512e143, type: 3}
 --- !u!1 &8222267229409266365 stripped
 GameObject:
@@ -957,12 +970,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.043
       objectReference: {fileID: 0}
-    - target: {fileID: 3576933310484123826, guid: 20734865b34a3304691cba9dc5240798,
+    - target: {fileID: 1210339480974703450, guid: 20734865b34a3304691cba9dc5240798,
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.90264845
       objectReference: {fileID: 0}
-    - target: {fileID: 1210339480974703450, guid: 20734865b34a3304691cba9dc5240798,
+    - target: {fileID: 3576933310484123826, guid: 20734865b34a3304691cba9dc5240798,
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.90264845
@@ -1131,8 +1144,7 @@ PrefabInstance:
       propertyPath: m_Text
       value: 06:00
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6233863020709648106, guid: f8e6ba878068c3941953ebcade5ebd6f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8e6ba878068c3941953ebcade5ebd6f, type: 3}
 --- !u!4 &5725213310292558169 stripped
 Transform:

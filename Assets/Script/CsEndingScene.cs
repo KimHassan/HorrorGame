@@ -10,10 +10,19 @@ public class CsEndingScene : MonoBehaviour
 
     public Image Eyes;
 
+    public AudioClip badSound;
+
+    public AudioClip soomSound;
+
+    public AudioClip crashSound;
+
+    AudioSource audio;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,7 +36,7 @@ public class CsEndingScene : MonoBehaviour
 
     void CrashDrug()
     {
-
+        PlayCrashDrugSound();
         Drug.GetComponent<Rigidbody>().AddForce(new Vector3(200, 200, 0), ForceMode.Force);
     }
 
@@ -48,6 +57,20 @@ public class CsEndingScene : MonoBehaviour
         SceneManager.LoadScene("CreditScene");
 
 
+    }
+
+    void PlayBadSound()
+    {
+        audio.PlayOneShot(badSound);
+    }
+
+    void PlaySoomSound()
+    {
+        audio.PlayOneShot(soomSound);
+    }
+    void PlayCrashDrugSound()
+    {
+        audio.PlayOneShot(crashSound);
     }
 
 

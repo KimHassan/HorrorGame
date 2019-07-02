@@ -66,7 +66,7 @@ public class CsObjectGenerator : CsObject
     {
         Player.isBatteryHaving = false;
 
-        Player.PlaySoundEffect("BatterySound");
+        Player.PlaySoundEffect("BatteryPut");
 
         battery[count].SetActive(true);
 

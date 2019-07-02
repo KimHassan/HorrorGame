@@ -88,6 +88,7 @@ public class CsGameManager : MonoBehaviour
             lightLamp.SetActive(false);
             blackLamp.SetActive(true);
             player.GetComponent<CsPlayer>().pointLight.gameObject.SetActive(true);
+            
         }
     }
 

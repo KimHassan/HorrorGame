@@ -108,6 +108,7 @@ public class CsPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "Monster")
         {
+            PlaySoundEffect("MonsterSound2");
             PlayerDie(other.gameObject);
         }
     }

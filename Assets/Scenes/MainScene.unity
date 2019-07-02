@@ -804,6 +804,31 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1459261bddcde24c85909e0a987ecf9, type: 3}
+--- !u!1 &1993432066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7509332803092534118, guid: b6cb08f976a909246931413dbfb2da3c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4013569203782782858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1993432067
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993432066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: abfe6fc5a9b390a488839c1fc3b58dcd, type: 3}
+  m_Controller: {fileID: 9100000, guid: f0118631c4cbed14baeb5a71da33a097, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2085891934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3848665173520722465, guid: 4f9d14c53469df44bb82c2684459decc,
@@ -1203,6 +1228,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: monster
       objectReference: {fileID: 0}
+    - target: {fileID: 9004914816638984323, guid: b6cb08f976a909246931413dbfb2da3c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5380881848161129104, guid: b6cb08f976a909246931413dbfb2da3c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1262,8 +1292,19 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1707024354}
+    - target: {fileID: 7509332803085347310, guid: b6cb08f976a909246931413dbfb2da3c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7509332803085347310, guid: b6cb08f976a909246931413dbfb2da3c,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7804757474940178863, guid: b6cb08f976a909246931413dbfb2da3c, type: 3}
+    - {fileID: 7509332803085347310, guid: b6cb08f976a909246931413dbfb2da3c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b6cb08f976a909246931413dbfb2da3c, type: 3}
 --- !u!1001 &4530980229765595390
 PrefabInstance:
@@ -1330,16 +1371,6 @@ PrefabInstance:
     - target: {fileID: 4530980230692052947, guid: c80dc1f563a3ad34b8b91a42275514b5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7804805083319060991, guid: c80dc1f563a3ad34b8b91a42275514b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4110962073840188086, guid: c80dc1f563a3ad34b8b91a42275514b5,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
