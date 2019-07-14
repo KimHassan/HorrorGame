@@ -459,20 +459,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4530980229765595393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138068894462960071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9446d56ff1b49c46953d35afd7eaef2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lampLight: {fileID: 7066540263602210998}
-  texture: {fileID: 2800000, guid: a84bdacc88464ac49a0309e199f0609a, type: 3}
 --- !u!64 &4530980230125257137
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -521,12 +507,18 @@ Transform:
   m_Father: {fileID: 4530980230692052947}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!64 &8759702248277423329
 MeshCollider:
+=======
+--- !u!114 &749307511
+MonoBehaviour:
+>>>>>>> parent of d30e5d2... 용기는 마지막입니다
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 6342401632883459364}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -631,6 +623,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+  m_GameObject: {fileID: 7758902852735189042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d12e1fa45d4d574e86b87546c08ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plusDestPos: {x: 0, y: -0.0261, z: 0}
+  speed: 3
+>>>>>>> parent of d30e5d2... 용기는 마지막입니다
 --- !u!65 &4530980228683790595
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -767,8 +769,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destVec: {x: -170, y: 90, z: -90}
+<<<<<<< HEAD
   openAudio: {fileID: 8300000, guid: b4ef2f9e31ee61e47bbaa6bd17fe573a, type: 3}
   closeAudio: {fileID: 8300000, guid: 37033961f75aab2418b2a956381774e8, type: 3}
+=======
+>>>>>>> parent of d30e5d2... 용기는 마지막입니다
 --- !u!1001 &143393259756779373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3775,6 +3780,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4530980229260613003}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &4530980229372665127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3870,6 +3876,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4530980229372665127}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of d30e5d2... 용기는 마지막입니다
 --- !u!1001 &4530980229399195020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3954,12 +3962,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63308c8e2c835ab45a1b97da40bb88ba, type: 3}
---- !u!1 &7325400457228137112 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6577589050393829140, guid: 63308c8e2c835ab45a1b97da40bb88ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 4530980229399195020}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3988777434048180494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 701362466141052034, guid: 63308c8e2c835ab45a1b97da40bb88ba,
@@ -5222,6 +5224,15 @@ PrefabInstance:
     - {fileID: 7977266214207124172, guid: aa5a38b504faf114ea4dd4e3e545d5b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aa5a38b504faf114ea4dd4e3e545d5b1, type: 3}
 --- !u!1 &737667166532830549 stripped
+<<<<<<< HEAD
+=======
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4923167487495113390, guid: aa5a38b504faf114ea4dd4e3e545d5b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5651492926829531131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7758902852735189042 stripped
+>>>>>>> parent of d30e5d2... 용기는 마지막입니다
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4923167487495113390, guid: aa5a38b504faf114ea4dd4e3e545d5b1,
     type: 3}
@@ -5233,6 +5244,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5651492926829531131}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!4 &7567221873050940531 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2840098924428721032, guid: aa5a38b504faf114ea4dd4e3e545d5b1,
@@ -5251,6 +5263,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5651492926829531131}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of d30e5d2... 용기는 마지막입니다
 --- !u!1001 &5782348098584930366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6202,31 +6216,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6043862222623733018, guid: 359370cf4bfdf314e9d4f975b027a146,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: a0dfa0c24452935458e08a67b9e9f4b4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 359370cf4bfdf314e9d4f975b027a146, type: 3}
+<<<<<<< HEAD
 --- !u!1 &5138068894462960071 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3086780067150102766, guid: 359370cf4bfdf314e9d4f975b027a146,
     type: 3}
   m_PrefabInstance: {fileID: 7897172387648495913}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of d30e5d2... 용기는 마지막입니다
 --- !u!4 &6833322916123519353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3696525720690608208, guid: 359370cf4bfdf314e9d4f975b027a146,
     type: 3}
   m_PrefabInstance: {fileID: 7897172387648495913}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!4 &3880666891329604608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6359788045228436777, guid: 359370cf4bfdf314e9d4f975b027a146,
     type: 3}
   m_PrefabInstance: {fileID: 7897172387648495913}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> parent of d30e5d2... 용기는 마지막입니다
 --- !u!1001 &7932195083106976457
 PrefabInstance:
   m_ObjectHideFlags: 0
