@@ -91,9 +91,9 @@ public class CsObjectGenerator : CsObject
 
         foreach(GameObject obj in gameObjects)
         {
-            Debug.Log("first:" + obj.name +"in");
+            Debug.Log("AAA:" + obj.name +"::::XXXXX");
 
-            if (obj.name == "Localclock")
+            if (obj.name == "Localclock" || obj.name == "battery(Clone)")
                 continue;
 
             obj.GetComponent<CsObject>().InitObject();

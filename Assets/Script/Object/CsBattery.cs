@@ -37,7 +37,7 @@ public class CsBattery : CsObject
 
     public override void InitObject()
     {
-
+        Debug.Log("I'm okay");
     }
 
     public override void Active()
