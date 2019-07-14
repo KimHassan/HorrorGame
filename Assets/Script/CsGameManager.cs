@@ -97,7 +97,7 @@ public class CsGameManager : MonoBehaviour
     {
         GameObject[] clock = GameObject.FindGameObjectsWithTag("Clock");
 
-        int index = UnityEngine.Random.Range(0, clock.Length - 1);
+        int index = UnityEngine.Random.Range(0, clock.Length);
 
         activeClock = clock[index].GetComponent<CsDigitalClock>();
 
@@ -139,7 +139,21 @@ public class CsGameManager : MonoBehaviour
 
     public void ActiveDrug(object message, EventArgs e)
     {
-        GameState.SendMessage(message);
+        switch(drugCount)
+        {
+            case 0:
+                GameState.SendMessage(message);
+                break;
+            case 2:
+                GameState.SendMessage(message);
+                break;
+            case 4:
+                GameState.SendMessage(message);
+                break;
+            case 7:
+                GameState.SendMessage(message);
+                break;
+        }
         drugCount += 1;
         if (drugCount % 2 == 0)
             ClockActiveTime -= 4;

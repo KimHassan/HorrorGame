@@ -47,7 +47,7 @@ public class CsObjectGenerator : CsObject
         }
 
 
-        if (Player.isBatteryHaving == false)
+        if (Player.batteryHaving <= 0)
         {
             CsUIControll.instance.ChangeText("배터리를 가지고 있지 않다.");
             return;
@@ -64,7 +64,10 @@ public class CsObjectGenerator : CsObject
 
     void PutBattery()
     {
-        Player.isBatteryHaving = false;
+        if (Player.batteryHaving <= 0)
+            return;
+
+        Player.batteryHaving -= 1;
 
         Player.PlaySoundEffect("BatteryPut");
 
@@ -77,6 +80,8 @@ public class CsObjectGenerator : CsObject
             isFinish = true;
 
             Player.isAbleEscape = true;
+
+            CsUIControll.instance.ChangeText("도어락이 켜진 거 같다");
         }
     }
 
