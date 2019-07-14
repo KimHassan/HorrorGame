@@ -22,6 +22,7 @@ public class CsIntroScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine("AlphaUp");
         Cursor.lockState = CursorLockMode.Locked;
 
         Cursor.visible = false;
@@ -70,5 +71,16 @@ public class CsIntroScene : MonoBehaviour
         SceneManager.LoadScene("MainScene");
 
         
+    }
+    IEnumerator AlphaUp()
+    {
+        while (Eyes.color.a > 0)
+        {
+            Color c = Eyes.color;
+            c.a -= 0.005f;
+            Eyes.color = c;
+            yield return null;
+        }
+
     }
 }

@@ -31,8 +31,7 @@ public class CsBattery : CsObject
 
     void DestroyItem()
     {
-        GameObject.FindWithTag("Player").GetComponent<CsPlayer>().isBatteryHaving = true;
-        CsGameManager.instance.BatteryCount += 1;
+
         Destroy(this.gameObject);
     }
 
@@ -43,7 +42,19 @@ public class CsBattery : CsObject
 
     public override void Active()
     {
-        CsUIControll.instance.ChangeText("배터리를 얻었다.");
+        GameObject.FindWithTag("Player").GetComponent<CsPlayer>().batteryHaving += 1;
+
+
+        CsGameManager.instance.BatteryCount += 1;
+
+        if (GameObject.FindWithTag("Player").GetComponent<CsPlayer>().batteryHaving == 1)
+        {
+            CsUIControll.instance.ChangeText("배터리를 얻었다. 베란다에 있는 발전기에 넣자");
+        }
+        else
+        {
+            CsUIControll.instance.ChangeText("배터리를 얻었다.");
+        }
         GameObject.FindWithTag("Player").GetComponent<CsPlayer>().PlaySoundEffect("BatterySound");
         itemActive();
     }

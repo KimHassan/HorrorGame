@@ -38,7 +38,7 @@ public class CsPlayer : MonoBehaviour
 
     bool isDead = false;
 
-    public bool isBatteryHaving;
+    public int batteryHaving;
 
     public bool isAbleEscape;
 
@@ -82,7 +82,7 @@ public class CsPlayer : MonoBehaviour
 
         csCamera = cam.GetComponent<CsCamera>();
 
-        isBatteryHaving = false;
+        batteryHaving = 0;
 
         isAbleEscape = false;
 
@@ -108,6 +108,7 @@ public class CsPlayer : MonoBehaviour
     {
         if (other.gameObject.tag == "Monster")
         {
+            PlaySoundEffect("MonsterSound2");
             PlayerDie(other.gameObject);
         }
     }

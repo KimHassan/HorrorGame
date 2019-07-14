@@ -102,6 +102,6 @@ public class CsCamera : MonoBehaviour
 
     void TextUp()
     {
-        CsUIControll.instance.ChangeText("뭔가 이상하다. 이 집에서 나가자");
+        CsUIControll.instance.ChangeText("뭔가 이상하다. 현관문을 통해 밖으로 나가야겠다");
     }
 }

@@ -48,7 +48,10 @@ public class CsDrug : CsObject
 
     public override void Active()
     {
-        CsUIControll.instance.ChangeText("알약을 얻었다.");
+        if(CsGameManager.instance.monster.activeSelf == false)
+            CsUIControll.instance.ChangeText("알약을 얻었다. 정신 이상일 때 먹으라고 적혀있다");
+        else
+            CsUIControll.instance.ChangeText("알약을 얻었다.");
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
