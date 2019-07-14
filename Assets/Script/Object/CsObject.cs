@@ -1,0 +1,24 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CsObject : MonoBehaviour
+{
+    // Start is called before the first frame update
+
+    public virtual void Active()
+    {
+
+    }
+
+    public virtual void RayCast()
+    {
+
+    }
+
+    public virtual void InitObject()
+    {
+        Debug.Log(tag);
+    }
+
+}
