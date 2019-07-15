@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CsUIControll : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class CsUIControll : MonoBehaviour
      Text textMessage;
 
     bool isTextUp;
+
+    bool isPause;
+
+    public GameObject pausePannel;
+
 
     private void Awake()
     {
@@ -36,8 +42,20 @@ public class CsUIControll : MonoBehaviour
 
         isTextUp = false;
 
+        isPause = false;
+
+        pausePannel.SetActive(isPause);
+
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Pause"))
+        {
+            SetPause();
+        }
+
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -45,14 +63,7 @@ public class CsUIControll : MonoBehaviour
 
         handCursor.SetActive(false);
 
-        
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            if (isTextUp)
-                return;
 
-            StartCoroutine("TextUpMessage");
-        }
     }
 
     public void RayCast()
@@ -116,5 +127,35 @@ public class CsUIControll : MonoBehaviour
 
         StartCoroutine("TextUpMessage");
 
+    }
+
+    public void SetPause()
+    {
+        if(isPause)
+        {
+            Time.timeScale = 1;
+            isPause = false;
+           pausePannel.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.Locked;//마우스 커서 고정
+
+            Cursor.visible = false;
+
+        }
+        else
+        {
+            isPause = true;
+            pausePannel.SetActive(true);
+
+            Cursor.lockState = CursorLockMode.None;
+
+            Cursor.visible = true;
+        }
+
+    }
+
+    public void GoTitle()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }
