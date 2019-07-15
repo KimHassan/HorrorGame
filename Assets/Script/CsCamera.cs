@@ -54,7 +54,7 @@ public class CsCamera : MonoBehaviour
 
                 break;
             case CAMERA_STATE.CAMERA_DEATH:
-                camComponent.fieldOfView = 35;
+                //camComponent.fieldOfView = 35;
                 
                 break;
         }

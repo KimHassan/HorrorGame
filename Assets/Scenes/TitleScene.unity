@@ -192,5 +192,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6086882361778576702, guid: d2eaabae90456364cb3de8727b7d4c2a,
+        type: 3}
+      propertyPath: m_Text
+      value: "\uD06C\uB808\uB527"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2eaabae90456364cb3de8727b7d4c2a, type: 3}

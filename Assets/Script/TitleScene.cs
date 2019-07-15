@@ -24,7 +24,7 @@ public class TitleScene : MonoBehaviour
     }
     public void SettingButton()
     {
-
+        SceneManager.LoadScene("CreditScene");
     }
     public void ExitButton()
     {

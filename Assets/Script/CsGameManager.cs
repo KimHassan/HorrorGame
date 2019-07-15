@@ -144,19 +144,20 @@ public class CsGameManager : MonoBehaviour
             case 0:
                 GameState.SendMessage(message);
                 break;
-            case 2:
+            case 1:
                 GameState.SendMessage(message);
+                ClockActiveTime -= 2;
                 break;
-            case 4:
+            case 3:
                 GameState.SendMessage(message);
+                ClockActiveTime -= 3;
                 break;
-            case 7:
+            case 6:
                 GameState.SendMessage(message);
+                ClockActiveTime -= 4;
                 break;
         }
         drugCount += 1;
-        if (drugCount % 2 == 0)
-            ClockActiveTime -= 4;
     }
 }
 
