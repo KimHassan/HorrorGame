@@ -1,6 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.Events;
+
+[Serializable]
+public class StringEvent : UnityEvent<string> { }
 
 public class CsObjectRotateObject : CsObject
 {
@@ -22,6 +27,9 @@ public class CsObjectRotateObject : CsObject
     private AudioClip closeAudio;
     private AudioSource audioSource;
 
+    [SerializeField]
+    public StringEvent eventHandler;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +44,8 @@ public class CsObjectRotateObject : CsObject
         isOpen = false;
 
         audioSource = GetComponent<AudioSource>();
+
+        eventHandler.AddListener(CsGameManager.instance.OpenDoor);
     }
 
     // Update is called once per frame
@@ -54,9 +64,10 @@ public class CsObjectRotateObject : CsObject
 
     public override void Active()
     {
-
-         StartCoroutine("RotateObject");
-
+        StartCoroutine("RotateObject");
+        string objName = gameObject.ToString();
+        objName = objName.Split(' ')[0];
+        eventHandler?.Invoke(objName);
     }
 
 

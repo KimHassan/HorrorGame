@@ -68,7 +68,7 @@ public class CsGameManager : MonoBehaviour
             instance = this;
 
         // DontDestroyOnLoad(this);
-        gameState = new GAME_USUALLY(this);
+        gameState = new GAME_STAY();
         csMonster = monster.GetComponent<CsMonster>();
     }
 
@@ -88,11 +88,9 @@ public class CsGameManager : MonoBehaviour
             lightLamp.SetActive(false);
             blackLamp.SetActive(true);
             player.GetComponent<CsPlayer>().pointLight.gameObject.SetActive(true);
-            
         }
     }
-
-
+    
     public GameObject AddDigitalClock(int time = 0)
     {
         GameObject[] clock = GameObject.FindGameObjectsWithTag("Clock");
@@ -109,6 +107,18 @@ public class CsGameManager : MonoBehaviour
         activeClock.StartTimeCounting(time);
 
         return activeClock.Text;
+    }
+
+    public void OpenDoor(string message)
+    {
+        Debug.Log(message.ToString());
+        Debug.Log(gameState.ToString());
+
+        if(gameState.ToString() == "GAME_STAY"
+            && message.Equals("DoorRot"))
+        {
+            gameState = new GAME_USUALLY();
+        }
     }
 
     public void MonsterAwake()
@@ -168,13 +178,26 @@ public interface GAME_STATE
     void SendMessage(object message);
 }
 
+public class GAME_STAY : GAME_STATE
+{
+    public void Update(CsGameManager manager)
+    {
+
+    }
+
+    public void SendMessage(object message)
+    {
+
+    }
+}
+
 public class GAME_USUALLY : GAME_STATE
 {
     public float time = 0;
 
-    public GAME_USUALLY(CsGameManager manager)
+    public GAME_USUALLY()
     {
-        manager.MonsterSpawnTime = manager.basicMonsterSpawnTime;
+        CsGameManager.instance.MonsterSpawnTime = CsGameManager.instance.basicMonsterSpawnTime;
 
     }
 
@@ -214,7 +237,7 @@ public class MONSTER_WAITING : GAME_STATE
         }
         else if(clockText.activeSelf == false)
         {
-            manager.GameState = new GAME_USUALLY(manager);
+            manager.GameState = new GAME_USUALLY();
         }
     }
 
@@ -242,7 +265,7 @@ public class MONSTER_ACTIVE : GAME_STATE
         if(message.ToString().Equals("ActiveDrug"))
         {
             myManager.MonsterStop();
-            myManager.GameState = new GAME_USUALLY(myManager);
+            myManager.GameState = new GAME_USUALLY();
         }
     }
 }

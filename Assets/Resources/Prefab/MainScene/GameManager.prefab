@@ -47,7 +47,7 @@ MonoBehaviour:
   Lights: {fileID: 0}
   UI: {fileID: 0}
   monster: {fileID: 0}
-  basicMonsterSpawnTime: 7
+  basicMonsterSpawnTime: 8
   clockActiveTime: 17
   lightLamp: {fileID: 0}
   blackLamp: {fileID: 0}

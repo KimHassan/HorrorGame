@@ -286,6 +286,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49b20c00d53e6de48b8bf339d2ff3925, type: 3}
+--- !u!1 &819536218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819536220}
+  - component: {fileID: 819536219}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &819536219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819536218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8f399d7c27e828489c2245712d0780a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDie: 0
+--- !u!4 &819536220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819536218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.61266065, y: 1.5346087, z: -1.1279521}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &850332503 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 850332503, guid: 4f9d14c53469df44bb82c2684459decc,
@@ -466,10 +510,6 @@ PrefabInstance:
       propertyPath: blackLamp
       value: 
       objectReference: {fileID: 7146454248746391604}
-    - target: {fileID: 1754332607, guid: c1b0cb1752cf2a246a99bf283d2366cc, type: 3}
-      propertyPath: basicMonsterSpawnTime
-      value: 9
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1b0cb1752cf2a246a99bf283d2366cc, type: 3}
 --- !u!1001 &1222100960
@@ -1300,6 +1340,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Furniture
       objectReference: {fileID: 0}
+    - target: {fileID: 7496759592013488906, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4530980230692052947, guid: c80dc1f563a3ad34b8b91a42275514b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1405,15 +1450,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.06
       objectReference: {fileID: 0}
-    - target: {fileID: 7496759592013488906, guid: c80dc1f563a3ad34b8b91a42275514b5,
+    - target: {fileID: 7990396082252542399, guid: c80dc1f563a3ad34b8b91a42275514b5,
         type: 3}
-      propertyPath: m_TagString
-      value: Untagged
+      propertyPath: eventHandler.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7990396082252542399, guid: c80dc1f563a3ad34b8b91a42275514b5,
         type: 3}
       propertyPath: destVec.y
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990396082252542399, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: eventHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7990396082252542399, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: eventHandler.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5239104703121348205, guid: c80dc1f563a3ad34b8b91a42275514b5,
         type: 3}
@@ -1429,6 +1484,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 385138958978116072, guid: c80dc1f563a3ad34b8b91a42275514b5,
+        type: 3}
+      propertyPath: m_Name
+      value: DoorRot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c80dc1f563a3ad34b8b91a42275514b5, type: 3}
