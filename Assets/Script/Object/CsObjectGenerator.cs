@@ -13,11 +13,19 @@ public class CsObjectGenerator : CsObject
     int count;
 
     bool isFinish;
+
+    AudioSource audioSource;
+    
+    public AudioClip audioClip;
+
     // Start is called before the first frame update
 
     private void Awake()
     {
         ItemManager = GameObject.FindGameObjectWithTag("ItemManager").GetComponent<CsItemManager>();
+
+        audioSource = GetComponent<AudioSource>();
+        
     }
     void Start()
     {
@@ -82,6 +90,9 @@ public class CsObjectGenerator : CsObject
             Player.isAbleEscape = true;
 
             CsUIControll.instance.ChangeText("도어락이 켜진 거 같다");
+            audioSource.PlayOneShot(audioClip);
+
+
         }
     }
 

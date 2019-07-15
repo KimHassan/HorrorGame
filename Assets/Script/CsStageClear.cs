@@ -11,10 +11,14 @@ public class CsStageClear : MonoBehaviour
     public Image blackAlpha;
 
     public GameObject Player;
+
+    AudioSource audioSource;
+
+    public AudioClip audioClip;
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,7 +38,7 @@ public class CsStageClear : MonoBehaviour
     IEnumerator GoEnding()
     {
         Bokdo.SetActive(false);
-
+        audioSource.PlayOneShot(audioClip);
         Player.transform.rotation.SetEulerRotation(0, 270, 0);
       
             while (blackAlpha.color.a < 1)
