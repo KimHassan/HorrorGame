@@ -197,7 +197,6 @@ public class GAME_USUALLY : GAME_STATE
 
     public GAME_USUALLY()
     {
-        CsGameManager.instance.MonsterSpawnTime = CsGameManager.instance.basicMonsterSpawnTime;
 
     }
 
@@ -207,7 +206,17 @@ public class GAME_USUALLY : GAME_STATE
 
         if (time >= manager.ClockActiveTime)
         {
-            GameObject clockText = manager.AddDigitalClock(5);
+            List<GameObject> clockText = new List<GameObject>();
+
+            if (CsGameManager.instance.BatteryCount > 1)
+            {
+                clockText.Add(manager.AddDigitalClock(5));
+                clockText.Add(manager.AddDigitalClock(5));
+            }
+            else
+            {
+                clockText.Add(manager.AddDigitalClock(5));
+            }
 
             manager.GameState = new MONSTER_WAITING(clockText);
         }
@@ -221,10 +230,14 @@ public class GAME_USUALLY : GAME_STATE
 
 public class MONSTER_WAITING : GAME_STATE
 {
-    GameObject clockText;
-    public MONSTER_WAITING(GameObject _clockText)
+    List<GameObject> clockText;
+
+    public MONSTER_WAITING(List<GameObject> _clockText)
     {
         clockText = _clockText;
+
+        CsGameManager.instance.MonsterSpawnTime = CsGameManager.instance.basicMonsterSpawnTime;
+        CsGameManager.instance.MonsterSpawnTime *= clockText.Count;
     }
 
     public void Update(CsGameManager manager)
@@ -233,12 +246,23 @@ public class MONSTER_WAITING : GAME_STATE
         {
             manager.MonsterAwake();
 
-            manager.GameState = new MONSTER_ACTIVE(manager);
+            manager.GameState = new MONSTER_ACTIVE(manager, clockText);
         }
-        else if(clockText.activeSelf == false)
-        {
+        else if(IsClockActive(clockText) == false)
             manager.GameState = new GAME_USUALLY();
+    }
+
+    public static bool IsClockActive(List<GameObject> clockText)
+    {
+        bool isClockActive = false;
+
+        for (int i = 0; i < clockText.Count; i++)
+        {
+            if (clockText[i].activeSelf == true)
+                isClockActive = true;
         }
+
+        return isClockActive;
     }
 
     public void SendMessage(object message)
@@ -250,9 +274,11 @@ public class MONSTER_WAITING : GAME_STATE
 public class MONSTER_ACTIVE : GAME_STATE
 {
     CsGameManager myManager;
-    public MONSTER_ACTIVE(CsGameManager manager)
+    List<GameObject> clockText;
+    public MONSTER_ACTIVE(CsGameManager manager, List<GameObject> _clockText)
     {
         myManager = manager;
+        clockText = _clockText;
     }
 
     public void Update(CsGameManager manager)
@@ -262,7 +288,7 @@ public class MONSTER_ACTIVE : GAME_STATE
 
     public void SendMessage(object message)
     {
-        if(message.ToString().Equals("ActiveDrug"))
+        if(message.ToString().Equals("ActiveDrug") && !MONSTER_WAITING.IsClockActive(clockText))
         {
             myManager.MonsterStop();
             myManager.GameState = new GAME_USUALLY();
